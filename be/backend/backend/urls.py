@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from arvanthea.views import RegisterAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user/register', RegisterAPI.as_view()),
 ]
