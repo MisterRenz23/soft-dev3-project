@@ -1,10 +1,17 @@
 import React from "react";
 import { Container, Navbar, NavDropdown, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import styles from "./NavBar.module.css";
 
 const NavBarComponent = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" varian="dark">
+    <Navbar
+      className={styles["nav-container"]}
+      collapseOnSelect
+      expand="lg"
+      bg="light"
+      varian="dark"
+    >
       <Container fluid>
         <Navbar.Brand>
           <Link to="/">

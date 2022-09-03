@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@100&family=Roboto:wght@100;300&display=swap");
+
+.page-container {
+  height: 100vh;
+  background-image: url(/public/images/login-register-background.png);
+  background-size: cover;
+}
+
+.box-form {
+  background-color: #c4b4bc;
+  border-radius: 10px;
+  filter: drop-shadow(0px 5px 12px rgba(0, 0, 0, 0.3));
+  width: 507px;
+  height: 625px;
+  padding: 10px;
+  margin-top: 120px;
+}
+
+.container-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 20px;
+}
+
+.title-description h2 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 75px;
+}
+
+.title-description p {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 37px;
+}
+
+.title-description span {
+  font-size: 13px;
+  text-align: center;
+  color: #3366cc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.create-acc-link {
+  text-decoration: none;
+  font-size: 13px;
+  text-align: center;
+  color: #3366cc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.create-acc-link:hover {
+  text-decoration: underline;
+}
+
+.form-container {
+  margin: 0px 58px;
+}
+
+.mb-3 {
+  text-align: right;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-sign-in {
+  background-color: #66002d;
+  border-radius: 21px;
+  width: 195px;
+  height: 42px;
+  margin-top: 39px;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+
+.button-sign-in-google {
+  background-color: #ffffff;
+  border-radius: 19px;
+  color: black;
+  border: none;
+  margin-bottom: 10px;
+  width: 315px;
+}
+
+.button-sign-in-google:hover {
+  background-color: rgb(80, 76, 76);
+}
+
+.button-sign-in-google::before {
+  content: url(/public/images/google-logo.png);
+  position: relative;
+  bottom: -5px;
+  left: -50px;
+}
+
+.button-sign-in-facebook {
+  background-color: #475a96;
+  border: none;
+  width: 315px;
+  border-radius: 19px;
+}
+
+.button-sign-in-facebook::before {
+  content: url(/public/images/facebook-logo.png);
+
+  position: relative;
+  bottom: -5px;
+  left: -47px;
+}
+
+.button-sign-in-facebook:hover {
+  color: white;
+}
+
+.form-controller {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+.line-container {
+  padding: 31px 6px;
+}
+
+.lines {
+  position: relative;
+}
+
+.lines::after,
+.lines::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  height: 2px;
+  background: #b1a2a9;
+  width: 40%;
+}
+
+.lines::after {
+  left: 0;
+}
+
+.lines::before {
+  right: 0;
+}
