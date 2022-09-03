@@ -1,0 +1,24 @@
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffaa55;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+  padding: 0px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.center-loader {
+  top: 0px;
+  left: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 65px;
+}
