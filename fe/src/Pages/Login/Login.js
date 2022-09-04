@@ -1,15 +1,13 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
 import styles from "./Login.module.css";
-import useForm from './useForm';
-import validate from './validateLogin';
+import useForm from "./useForm";
+import validate from "./validateLogin";
 
 const Login = () => {
-  const { handleChange, clickLogin, values, errors } = useForm(
-    validate
-  );
+  const { handleChange, clickLogin, values, errors } = useForm(validate);
 
   return (
     <div className={styles["page-container"]}>
@@ -32,7 +30,7 @@ const Login = () => {
                   required
                   className={styles["form-controller"]}
                   type="text"
-                  name='username'
+                  name="username"
                   placeholder="Username"
                   value={values.username}
                   onChange={handleChange}
@@ -71,7 +69,6 @@ const Login = () => {
                 >
                   Login
                 </Button>
-
               </div>
               <div className={styles["line-container"]}>
                 <div className={styles["lines"]}>
