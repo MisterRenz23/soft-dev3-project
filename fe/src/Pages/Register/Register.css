@@ -1,0 +1,35 @@
+.react-datepicker__input-container input {
+  padding: 0.375rem 0.75rem;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+}
+
+.react-datepicker-wrapper input {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+.number-container {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.radio-group {
+  margin-bottom: 1rem;
+}
+
+.radio-group input {
+  margin-right: 5px;
+}
