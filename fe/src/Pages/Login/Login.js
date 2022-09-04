@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
 import styles from "./Login.module.css";
+import useForm from './useForm';
+import validate from './validateLogin';
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const { handleChange, clickLogin, values, errors } = useForm(
+    validate
+  );
 
   return (
     <div className={styles["page-container"]}>
@@ -29,10 +32,12 @@ const Login = () => {
                   required
                   className={styles["form-controller"]}
                   type="text"
+                  name='username'
                   placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={values.username}
+                  onChange={handleChange}
                 />
+                {errors.username && <p>{errors.username}</p>}
               </Form.Group>
               <Form.Group
                 className={styles["mb-3"]}
@@ -42,10 +47,12 @@ const Login = () => {
                   required
                   className={styles["form-controller"]}
                   type="password"
+                  name="password"
                   placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={values.password}
+                  onChange={handleChange}
                 />
+                {errors.password && <p>{errors.password}</p>}
               </Form.Group>
               <Form.Group
                 className={styles["mb-3"]}
@@ -60,9 +67,11 @@ const Login = () => {
                   className={styles["button-sign-in"]}
                   variant="primary"
                   type="submit"
+                  onClick={clickLogin}
                 >
                   Login
                 </Button>
+
               </div>
               <div className={styles["line-container"]}>
                 <div className={styles["lines"]}>
