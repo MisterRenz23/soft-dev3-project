@@ -1,20 +1,20 @@
-import { useState } from "react";
-import API from "../../API";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import API from '../../API';
+import { useNavigate } from 'react-router-dom';
 
 const useForm = (validate) => {
   const [values, setValues] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
       ...values,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -22,22 +22,21 @@ const useForm = (validate) => {
     e.preventDefault();
     const valuesFormData = {
       username: values.username,
-      password: values.password
+      password: values.password,
     };
 
-
-    API.post("/user/login", valuesFormData)
+    API.post('/user/login', valuesFormData)
       .then((response) => {
         localStorage.setItem('token', `knox ${response.data.token}`);
         API.defaults.headers.Authorization = `knox ${response.data.token}`;
         console.log(response.data.token);
         // window.location.reload();
-        navigate("/");
+        navigate('/home-user');
       })
       .catch((error) => {
         setErrors(validate(values, error.response.data));
         console.log(error.response.data);
-      })
+      });
   };
 
   return { clickLogin, handleChange, values, errors };
