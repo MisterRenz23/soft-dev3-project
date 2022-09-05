@@ -1,19 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home/Home';
-import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
-import RegisterSuccess from './Pages/RegisterSuccess/RegisterSuccess';
-import About from './Pages/About/About';
-import Services from './Pages/Services/Services';
-import Faqs from './Pages/Faqs/Faqs';
-import Feedback from './Pages/Feedback/Feedback';
-import Profile from './Pages/Profile/Profile';
-import HomeUser from './UserPages/HomeUser/HomeUser';
-import AboutUser from './UserPages/AboutUser/AboutUser';
-import FaqsUser from './UserPages/FaqsUser/FaqsUser';
-import ServicesUser from './UserPages/ServicesUser/ServicesUser';
-import FeedbackUser from './UserPages/FeedbackUser/Feedback';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import RegisterSuccess from "./Pages/RegisterSuccess/RegisterSuccess";
+import About from "./Pages/About/About";
+import Services from "./Pages/Services/Services";
+import Faqs from "./Pages/Faqs/Faqs";
+import Feedback from "./Pages/Feedback/Feedback";
+import Profile from "./Pages/Profile/Profile";
+import HomeUser from "./UserPages/HomeUser/HomeUser";
+import AboutUser from "./UserPages/AboutUser/AboutUser";
+import FaqsUser from "./UserPages/FaqsUser/FaqsUser";
+import ServicesUser from "./UserPages/ServicesUser/ServicesUser";
+import FeedbackUser from "./UserPages/FeedbackUser/Feedback";
 
 const App = () => {
   return (

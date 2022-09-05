@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
@@ -86,6 +86,8 @@ const Login = () => {
               </div>
               <div className={styles["button-container"]}>
                 <Button
+                  component={Link}
+                  to="./login"
                   className={styles["button-sign-in-facebook"]}
                   variant="primary"
                   type="submit"
