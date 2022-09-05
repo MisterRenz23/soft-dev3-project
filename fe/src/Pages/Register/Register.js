@@ -9,16 +9,22 @@ import "react-datepicker/dist/react-datepicker.css";
 import { RadioGroup, Radio } from "react-radio-group";
 import "./Register.css";
 import useForm from "./useForm";
-import validate from "./validateInfo"
+import validate from "./validateInfo";
 import FormSuccess from "./FormSuccess";
 
 const Register = () => {
+  const {
+    handleChange,
+    handleSubmit,
+    changeDate,
+    registerSuccess,
+    values,
+    errors,
+  } = useForm(validate);
 
-  const { handleChange, handleSubmit, changeDate, registerSuccess, values, errors } = useForm(
-    validate
-  );
-
-  return registerSuccess ? <FormSuccess /> : (
+  return registerSuccess ? (
+    <FormSuccess />
+  ) : (
     <div className={styles["page-container"]}>
       <NavBarComponent />
       <div className={styles["container-box"]}>
@@ -58,7 +64,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 {errors.first_name && <p>{errors.first_name}</p>}
-
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicText">
@@ -72,7 +77,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 {errors.middle_name && <p>{errors.middle_name}</p>}
-
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicText">
@@ -86,7 +90,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 {errors.lastname && <p>{errors.lastname}</p>}
-
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicText">
@@ -100,7 +103,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 {errors.address && <p>{errors.address}</p>}
-
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -121,8 +123,9 @@ const Register = () => {
                 name="birth_date"
                 placeholderText="YYYY/MM/DD"
                 dateFormat="yyyy/MM/dd"
-                onChange={date => handleChange({ target: { value: date, name: 'startDate' } })}
-
+                onChange={(date) =>
+                  handleChange({ target: { value: date, name: "startDate" } })
+                }
               />
               {errors.startDate && <p>{errors.startDate}</p>}
 
@@ -134,8 +137,11 @@ const Register = () => {
                 placeholder="+63"
                 name="contact_number"
                 value={values.contact_number}
-                onChange={contact_number => handleChange({ target: { value: contact_number, name: 'contact_number' } })}
-
+                onChange={(contact_number) =>
+                  handleChange({
+                    target: { value: contact_number, name: "contact_number" },
+                  })
+                }
               />
               {errors.contact_number && <p>{errors.contact_number}</p>}
 
@@ -143,7 +149,9 @@ const Register = () => {
                 className="radio-group"
                 name="sex"
                 selectedValue={values.sex}
-                onChange={sex => handleChange({ target: { value: sex, name: 'sex' } })}
+                onChange={(sex) =>
+                  handleChange({ target: { value: sex, name: "sex" } })
+                }
               >
                 <Radio value="male" />
                 Male
@@ -151,7 +159,6 @@ const Register = () => {
                 Female
               </RadioGroup>
               {errors.sex && <p>{errors.sex}</p>}
-
 
               <Form.Group
                 className={styles["mb-3"]}
@@ -167,7 +174,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 {errors.password && <p>{errors.password}</p>}
-
               </Form.Group>
               <Form.Group
                 className={styles["mb-3"]}
@@ -183,7 +189,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 {errors.confirm_password && <p>{errors.confirm_password}</p>}
-
               </Form.Group>
               <div className={styles["button-container"]}>
                 <Button
