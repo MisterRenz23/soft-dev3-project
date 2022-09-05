@@ -1,0 +1,7 @@
+/be/.venv
+/be/backend/backend/__pycache__
+/be/backend/arvanthea/__pycache__
+/be/backend/db.sqlite3
+/fe/package-lock.json
+/fe/package.json
+/fe/node_modules
