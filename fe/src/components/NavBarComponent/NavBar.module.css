@@ -1,3 +1,7 @@
 .nav-container {
   border-bottom: 2px #66002d solid;
 }
+
+.nav-icons {
+  margin-right: 10px;
+}

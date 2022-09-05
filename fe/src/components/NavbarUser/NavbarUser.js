@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
 
 const NavbarUser = () => {
   return (
@@ -14,18 +15,27 @@ const NavbarUser = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="Menu" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/">Home</NavDropdown.Item>
-              <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
-              <NavDropdown.Item href="/services">Services</NavDropdown.Item>
-              <NavDropdown.Item href="/faqs">Faqs</NavDropdown.Item>
-              <NavDropdown.Item href="/feedback">Feedback</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <NavDropdown title="Profile" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/">Log Out</NavDropdown.Item>
+            <NavDropdown title={<FaBars />} id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/">
+                <FaHome className={styles['nav-icons']} />
+                Home
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/about">
+                <FaQuestionCircle className={styles['nav-icons']} />
+                About Us
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/services">
+                <MdFoodBank className={styles['nav-icons']} />
+                Services
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/faqs">
+                <RiQuestionAnswerFill className={styles['nav-icons']} />
+                Faqs
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/feedback">
+                <MdFeedback className={styles['nav-icons']} />
+                Feedback
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
