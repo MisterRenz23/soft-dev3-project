@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import styles from './NavBar.module.css';
+import styles from './NavbarRegister.module.css';
 import { FaHome, FaQuestionCircle } from 'react-icons/fa';
 import { MdFeedback, MdFoodBank } from 'react-icons/md';
 import { RiQuestionAnswerFill } from 'react-icons/ri';
 
-const NavBarComponent = () => {
+const NavbarRegister = () => {
   return (
     <Navbar
       className={styles['nav-container']}
@@ -54,9 +54,6 @@ const NavBarComponent = () => {
             <Nav.Link href="/login">
               <img src="/images/SignIn.png" alt="Sign In Button" />
             </Nav.Link>
-            <Nav.Link href="/register">
-              <img src="/images/SignUp.png" alt="Sign Up Button"></img>
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -64,4 +61,4 @@ const NavBarComponent = () => {
   );
 };
 
-export default NavBarComponent;
+export default NavbarRegister;
