@@ -63,7 +63,18 @@
   padding: 0px !important;
 }
 
-.Col-xs-size-6-0-2-54 {
-  padding: 0px !important;
-  flex-basis: 0% !important;
+.second-form-controller {
+  width: 86%;
+}
+
+.radio-container {
+  margin-right: 20px;
+}
+
+.radio-selection {
+  margin-right: 30px;
+}
+
+.radio-group {
+  margin-left: 50px;
 }

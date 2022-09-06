@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Row, Col } from "@nordnet/grid";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
@@ -14,13 +14,18 @@ import Input from "react-phone-number-input/input";
 import "react-dropdown/style.css";
 import FormSuccess from "../Register/FormSuccess";
 import { RadioGroup, Radio } from "react-radio-group";
+import Select from "react-select";
 
-const options = ["Male", "Female"];
-const defaultOption = "Male";
+const options = [
+  { value: "Male", label: "Male-Selected" },
+  { value: "Female", label: "Female-Selected" },
+];
 
 const RegisterV2 = () => {
   const { handleChange, handleSubmit, registerSuccess, values, errors } =
     useForm(validate);
+
+  const [selectedOption, setSelectedOption] = useState(null);
 
   return registerSuccess ? (
     <FormSuccess />
@@ -93,18 +98,50 @@ const RegisterV2 = () => {
                     {errors.address && <p>{errors.address}</p>}
                   </Form.Group>
 
-                  <Dropdown
+                  {/* <Dropdown
+                    value={values.sex}
+                    values={values.sex}
                     placeholderClassName="myPlaceholderClassName"
                     controlClassName="myControlClassName"
                     arrowClassName="myArrowClassName"
                     options={options}
-                    value={defaultOption}
                     placeholder="Gender"
                     name="sex"
                     onChange={(sex) =>
                       handleChange({ target: { value: sex, name: "sex" } })
                     }
-                  />
+                  /> */}
+
+                  <div className="radio-container">
+                    <RadioGroup
+                      className="radio-group"
+                      name="sex"
+                      selectedValue={values.sex}
+                      onChange={(sex) =>
+                        handleChange({ target: { value: sex, name: "sex" } })
+                      }
+                    >
+                      <Radio value="male" className="radio-selection" />
+                      Male{"                       "}
+                      <Radio value="female" />
+                      Female
+                    </RadioGroup>
+                    {errors.sex && <p>{errors.sex}</p>}
+                  </div>
+
+                  {/* <div>
+                    <select
+                      name="sex"
+                      value={values.sex}
+                      onChange={(sex) =>
+                        handleChange({ target: { value: sex, name: "sex" } })
+                      }
+                    >
+                      <option value="Apple">Apple</option>
+                      <option value="Pear">Pear</option>
+                      <option value="Pineapple">Pineapple</option>
+                    </select>
+                  </div> */}
 
                   <Input
                     className="number-container"
@@ -153,7 +190,10 @@ const RegisterV2 = () => {
                 </Form>
               </Col>
               <Col xs={6} noPadding>
-                <Form onSubmit={handleSubmit}>
+                <Form
+                  className="second-form-controller"
+                  onSubmit={handleSubmit}
+                >
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control
                       required
