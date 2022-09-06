@@ -2,12 +2,11 @@ import React from 'react';
 import { Container, Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styles from './NavbarUser.module.css';
-import { FaHome, FaBars, FaQuestionCircle } from 'react-icons/fa';
+import { FaHome, FaQuestionCircle } from 'react-icons/fa';
 import { MdFeedback, MdFoodBank } from 'react-icons/md';
 import { RiQuestionAnswerFill } from 'react-icons/ri';
 import { CgProfile } from 'react-icons/cg';
 import { BiLogOut } from 'react-icons/bi';
-import { AiFillSetting } from 'react-icons/ai';
 
 const NavbarUser = () => {
   return (
@@ -21,7 +20,7 @@ const NavbarUser = () => {
       <Container fluid>
         <Navbar.Brand>
           <Link to="/">
-            <img src="/images/Logo.png" alt="Home"></img>
+            <img src="/images/Logo.png" alt="logo"></img>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -29,7 +28,7 @@ const NavbarUser = () => {
           <Nav className="me-auto">
             {['end'].map((direction) => (
               <NavDropdown
-                title={<FaBars />}
+                title={<img src="/images/menu.png" alt="menu" />}
                 key={direction}
                 id={`dropdown-button-drop-${direction}`}
                 drop={direction}
@@ -60,7 +59,7 @@ const NavbarUser = () => {
           <Nav>
             {['start'].map((direction) => (
               <NavDropdown
-                title={<AiFillSetting />}
+                title={<img src="/images/account.png" alt="account" />}
                 key={direction}
                 id={`dropdown-button-drop-${direction}`}
                 drop={direction}
@@ -76,6 +75,9 @@ const NavbarUser = () => {
               </NavDropdown>
             ))}
           </Nav>
+          <Nav.Link>
+            <img src="/images/cart.png" alt="cart" />
+          </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
