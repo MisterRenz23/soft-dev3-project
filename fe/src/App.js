@@ -14,15 +14,15 @@ import AboutUser from './UserPages/AboutUser/AboutUser';
 import FaqsUser from './UserPages/FaqsUser/FaqsUser';
 import ServicesUser from './UserPages/ServicesUser/ServicesUser';
 import FeedbackUser from './UserPages/FeedbackUser/Feedback';
-import RegisterV2 from './Pages/RegisterV2/RegisterV2';
 import SetOrder from './Pages/SetOrder/SetOrder';
+
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" exact element={<Login />}></Route>
-        <Route path="/register" exact element={<RegisterV2 />}></Route>
+        <Route path="/register" exact element={<Register />}></Route>
         <Route
           path="/register-success"
           exact
