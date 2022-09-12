@@ -1,49 +1,43 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
-import styles from './Register.module.css';
-import Input from 'react-phone-number-input/input';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { RadioGroup, Radio } from 'react-radio-group';
-import './Register.css';
-import useForm from './useForm';
-import validate from './validateInfo';
-import FormSuccess from './FormSuccess';
-import NavbarRegister from '../../components/NavbarRegister/NavbarRegister';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
+import styles from "./Register.module.css";
+import Input from "react-phone-number-input/input";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { RadioGroup, Radio } from "react-radio-group";
+import "./Register.css";
+import useForm from "./useForm";
+import validate from "./validateInfo";
+import FormSuccess from "./FormSuccess";
+import NavbarRegister from "../../components/NavbarRegister/NavbarRegister";
 
 const Register = () => {
-  const {
-    handleChange,
-    handleSubmit,
-    changeDate,
-    registerSuccess,
-    values,
-    errors,
-  } = useForm(validate);
+  const { handleChange, handleSubmit, registerSuccess, values, errors } =
+    useForm(validate);
 
   return registerSuccess ? (
     <FormSuccess />
   ) : (
-    <div className={styles['page-container']}>
+    <div className={styles["page-container"]}>
       <NavbarRegister />
-      <div className={styles['container-box']}>
-        <div className={styles['box-form']}>
-          <div className={styles['title-description']}>
+      <div className={styles["container-box"]}>
+        <div className={styles["box-form"]}>
+          <div className={styles["title-description"]}>
             <h2>Sign Up</h2>
             <p>
-              Have an account?{' '}
-              <Link to="/login" className={styles['create-acc-link']}>
+              Have an account?{" "}
+              <Link to="/login" className={styles["create-acc-link"]}>
                 Login
               </Link>
             </p>
           </div>
-          <div className={styles['form-container']}>
+          <div className={styles["form-container"]}>
             <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Group className="mb-3" controlId="formBasicText1">
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="text"
                   placeholder="Username"
                   name="username"
@@ -53,10 +47,10 @@ const Register = () => {
                 {errors.username && <p>{errors.username}</p>}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Group className="mb-3" controlId="formBasicText2">
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="text"
                   placeholder="First Name"
                   name="first_name"
@@ -66,10 +60,10 @@ const Register = () => {
                 {errors.first_name && <p>{errors.first_name}</p>}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Group className="mb-3" controlId="formBasicText3">
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="text"
                   placeholder="Middle Name"
                   name="middle_name"
@@ -79,10 +73,10 @@ const Register = () => {
                 {errors.middle_name && <p>{errors.middle_name}</p>}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Group className="mb-3" controlId="formBasicText4">
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="text"
                   placeholder="Last Name"
                   name="last_name"
@@ -92,10 +86,10 @@ const Register = () => {
                 {errors.lastname && <p>{errors.lastname}</p>}
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicText">
+              <Form.Group className="mb-3" controlId="formBasicText5">
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="text"
                   placeholder="Current Address"
                   name="address"
@@ -108,7 +102,7 @@ const Register = () => {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="email"
                   name="email"
                   placeholder="Email Address"
@@ -124,7 +118,7 @@ const Register = () => {
                 placeholderText="YYYY/MM/DD"
                 dateFormat="yyyy/MM/dd"
                 onChange={(date) =>
-                  handleChange({ target: { value: date, name: 'startDate' } })
+                  handleChange({ target: { value: date, name: "startDate" } })
                 }
               />
               {errors.startDate && <p>{errors.startDate}</p>}
@@ -139,7 +133,7 @@ const Register = () => {
                 value={values.contact_number}
                 onChange={(contact_number) =>
                   handleChange({
-                    target: { value: contact_number, name: 'contact_number' },
+                    target: { value: contact_number, name: "contact_number" },
                   })
                 }
               />
@@ -150,7 +144,7 @@ const Register = () => {
                 name="sex"
                 selectedValue={values.sex}
                 onChange={(sex) =>
-                  handleChange({ target: { value: sex, name: 'sex' } })
+                  handleChange({ target: { value: sex, name: "sex" } })
                 }
               >
                 <Radio value="male" />
@@ -161,12 +155,12 @@ const Register = () => {
               {errors.sex && <p>{errors.sex}</p>}
 
               <Form.Group
-                className={styles['mb-3']}
-                controlId="formBasicPassword"
+                className={styles["mb-3"]}
+                controlId="formBasicPassword1"
               >
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="password"
                   name="password"
                   placeholder="Password"
@@ -176,12 +170,12 @@ const Register = () => {
                 {errors.password && <p>{errors.password}</p>}
               </Form.Group>
               <Form.Group
-                className={styles['mb-3']}
-                controlId="formBasicPassword"
+                className={styles["mb-3"]}
+                controlId="formBasicPassword2"
               >
                 <Form.Control
                   required
-                  className={styles['form-controller']}
+                  className={styles["form-controller"]}
                   type="password"
                   name="confirm_password"
                   placeholder="Confirm Password"
@@ -190,9 +184,9 @@ const Register = () => {
                 />
                 {errors.confirm_password && <p>{errors.confirm_password}</p>}
               </Form.Group>
-              <div className={styles['button-container']}>
+              <div className={styles["button-container"]}>
                 <Button
-                  className={styles['button-sign-in']}
+                  className={styles["button-sign-in"]}
                   variant="primary"
                   type="submit"
                   onSubmit={handleSubmit}

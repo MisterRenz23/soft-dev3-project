@@ -29,7 +29,6 @@ const FormSuccess = () => {
                 className={styles["button-continue"]}
                 variant="primary"
                 type="submit"
-                onClick
               >
                 Continue
               </Button>
