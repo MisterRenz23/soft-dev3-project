@@ -58,7 +58,9 @@ const IndividualOrder = () => {
                         Deliciously crispy fried chicken with a crunchy coating
                         on the outside and juicy, tender chicken inside.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <Link to="/services/individual-order/1">
+                        <Button variant="primary">Order Now</Button>
+                      </Link>
                     </Card.Body>
                   </Card>
                 </Col>

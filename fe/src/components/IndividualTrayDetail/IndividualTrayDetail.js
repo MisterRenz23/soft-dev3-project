@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./IndividualTrayDetail.module.css";
-import NavbarUser from "../NavbarUser/NavbarUser";
-import { VscAdd } from "react-icons/vsc";
-import { VscChromeMinimize } from "react-icons/vsc";
-import { Button } from "react-bootstrap";
-import { FiArrowLeft } from "react-icons/fi";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styles from './IndividualTrayDetail.module.css';
+import { VscAdd } from 'react-icons/vsc';
+import { VscChromeMinimize } from 'react-icons/vsc';
+import { Button } from 'react-bootstrap';
+import { FiArrowLeft } from 'react-icons/fi';
 
 const IndividualTrayDetail = ({
   ProductName,
@@ -16,52 +16,54 @@ const IndividualTrayDetail = ({
 }) => {
   const [count, setCount] = useState(0);
   return (
-    <div className={styles["background"]}>
-      <div className={styles["page-container"]}>
-        <button className={styles["back-button-container"]}>
-          <FiArrowLeft className={styles["back-button"]} />
-        </button>
+    <div className={styles['background']}>
+      <div className={styles['page-container']}>
+        <Link to="/services-user/individual-order">
+          <button className={styles['back-button-container']}>
+            <FiArrowLeft className={styles['back-button']} />
+          </button>
+        </Link>
 
-        <div className={styles["page-content"]}>
-          <div className={styles["image-container"]}>
+        <div className={styles['page-content']}>
+          <div className={styles['image-container']}>
             <img
               src={`/images/IndividualTrayDetail/${ProductImage}`}
-              className={styles["image-size"]}
-              alt="fried-chicken-picture"
+              className={styles['image-size']}
+              alt="Product"
             />
           </div>
-          <div className={styles["product-text"]}>
-            <div className={styles["name-price-inline"]}>
-              <h1 className={styles["product-name"]}>
+          <div className={styles['product-text']}>
+            <div className={styles['name-price-inline']}>
+              <h1 className={styles['product-name']}>
                 {ProductName}
 
-                <span className={styles["product-price"]}>
+                <span className={styles['product-price']}>
                   ₱ {ProductPrice}.00
                 </span>
               </h1>
             </div>
 
-            <p className={styles["product-serving"]}>
+            <p className={styles['product-serving']}>
               Good for {ProductServing} persons
             </p>
-            <p className={styles["product-description"]}>
+            <p className={styles['product-description']}>
               {ProductDescription}
             </p>
-            <div className={styles["counter"]}>
+            <div className={styles['counter']}>
               <button
-                className={styles["icon-minus"]}
+                className={styles['icon-minus']}
                 onClick={() => setCount(count - 1)}
                 disabled={count === 0}
               >
-                <VscChromeMinimize className={styles["icon-minus"]} />
+                <VscChromeMinimize className={styles['icon-minus']} />
               </button>
 
               <h2 className="number-counter">{count}</h2>
               <VscAdd
-                className={styles["icon-add"]}
+                className={styles['icon-add']}
                 onClick={() => setCount(count + 1)}
               />
-              <Button className={styles["button-add-order"]}>Add To Bag</Button>
+              <Button className={styles['button-add-order']}>Add To Bag</Button>
             </div>
           </div>
         </div>
