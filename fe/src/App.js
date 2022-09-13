@@ -9,13 +9,16 @@ import Services from './Pages/Services/Services';
 import Faqs from './Pages/Faqs/Faqs';
 import Feedback from './Pages/Feedback/Feedback';
 import Profile from './Pages/Profile/Profile';
+import EditProfile from './Pages/EditProfile/EditProfile';
 import HomeUser from './UserPages/HomeUser/HomeUser';
 import AboutUser from './UserPages/AboutUser/AboutUser';
 import FaqsUser from './UserPages/FaqsUser/FaqsUser';
 import ServicesUser from './UserPages/ServicesUser/ServicesUser';
 import FeedbackUser from './UserPages/FeedbackUser/Feedback';
 import SetOrder from './Pages/SetOrder/SetOrder';
-
+import IndividualOrder from './Pages/IndividualOrder/IndividualOrder';
+import SetOrderUser from './UserPages/SetOrderUser/SetOrderUser';
+import IndividualOrderUser from './UserPages/IndividualOrderUser/IndividualOrderUser';
 
 const App = () => {
   return (
@@ -39,7 +42,27 @@ const App = () => {
         <Route path="/feedback" exact element={<Feedback />}></Route>
         <Route path="/feedback-user" exact element={<FeedbackUser />}></Route>
         <Route path="/profile" exact element={<Profile />}></Route>
+        <Route
+          path="/profile/edit-profile"
+          exact
+          element={<EditProfile />}
+        ></Route>
         <Route path="/services/set-order" exact element={<SetOrder />}></Route>
+        <Route
+          path="/services-user/set-order"
+          exact
+          element={<SetOrderUser />}
+        ></Route>
+        <Route
+          path="/services/individual-order"
+          exact
+          element={<IndividualOrder />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order"
+          exact
+          element={<IndividualOrderUser />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
