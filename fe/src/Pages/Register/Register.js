@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Grid, Row, Col } from "@nordnet/grid";
-import { Link } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
-import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import useForm from "./useForm";
-import validate from "./validateInfo";
-import styles from "./Register.module.css";
-import "./Register.css";
-import Input from "react-phone-number-input/input";
-import "react-dropdown/style.css";
-import FormSuccess from "../Register/FormSuccess";
-import { RadioGroup, Radio } from "react-radio-group";
+import React, { useState } from 'react';
+import { Grid, Row, Col } from '@nordnet/grid';
+import { Link } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import useForm from './useForm';
+import validate from './validateInfo';
+import styles from './Register.module.css';
+import './Register.css';
+import Input from 'react-phone-number-input/input';
+import 'react-dropdown/style.css';
+import FormSuccess from '../Register/FormSuccess';
+import { RadioGroup, Radio } from 'react-radio-group';
+import NavbarRegister from '../../components/NavbarRegister/NavbarRegister';
 
 const RegisterV2 = () => {
   const { handleChange, handleSubmit, registerSuccess, values, errors } =
@@ -21,18 +21,18 @@ const RegisterV2 = () => {
   return registerSuccess ? (
     <FormSuccess />
   ) : (
-    <div className={styles["page-container"]}>
-      <NavBarComponent />
-      <div className={styles["whole-box"]}>
-        <div className={styles["first-box"]}>
+    <div className={styles['page-container']}>
+      <NavbarRegister />
+      <div className={styles['whole-box']}>
+        <div className={styles['first-box']}>
           <Grid>
             <Row componentClass="nav">
               <Col xs={6} noPadding>
                 <div className="title-description">
-                  <h2 className={styles["h2-text"]}>Create Account</h2>
-                  <h3 className={styles["h3-text"]}>
-                    Already have an account?{"  "}
-                    <Link to="/login" className={styles["login-link"]}>
+                  <h2 className={styles['h2-text']}>Create Account</h2>
+                  <h3 className={styles['h3-text']}>
+                    Already have an account?{'  '}
+                    <Link to="/login" className={styles['login-link']}>
                       Sign in Here
                     </Link>
                   </h3>
@@ -42,7 +42,7 @@ const RegisterV2 = () => {
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control
                       required
-                      className={styles["form-controller"]}
+                      className={styles['form-controller']}
                       type="text"
                       placeholder="First Name"
                       name="first_name"
@@ -54,7 +54,7 @@ const RegisterV2 = () => {
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control
                       required
-                      className={styles["form-controller"]}
+                      className={styles['form-controller']}
                       type="text"
                       placeholder="Middle Name"
                       name="middle_name"
@@ -66,7 +66,7 @@ const RegisterV2 = () => {
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control
                       required
-                      className={styles["form-controller"]}
+                      className={styles['form-controller']}
                       type="text"
                       placeholder="Last Name"
                       name="last_name"
@@ -78,7 +78,7 @@ const RegisterV2 = () => {
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control
                       required
-                      className={styles["form-controller"]}
+                      className={styles['form-controller']}
                       type="text"
                       placeholder="Current Address"
                       name="address"
@@ -94,11 +94,11 @@ const RegisterV2 = () => {
                       name="sex"
                       selectedValue={values.sex}
                       onChange={(sex) =>
-                        handleChange({ target: { value: sex, name: "sex" } })
+                        handleChange({ target: { value: sex, name: 'sex' } })
                       }
                     >
                       <Radio value="male" className="radio-selection" />
-                      Male{"                       "}
+                      Male{'                       '}
                       <Radio value="female" />
                       Female
                     </RadioGroup>
@@ -117,7 +117,7 @@ const RegisterV2 = () => {
                       handleChange({
                         target: {
                           value: contact_number,
-                          name: "contact_number",
+                          name: 'contact_number',
                         },
                       })
                     }
@@ -126,7 +126,7 @@ const RegisterV2 = () => {
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control
                       required
-                      className={styles["form-controller"]}
+                      className={styles['form-controller']}
                       type="text"
                       name="email"
                       placeholder="Email Address"
@@ -143,12 +143,12 @@ const RegisterV2 = () => {
                     dateFormat="yyyy/MM/dd"
                     onChange={(date) =>
                       handleChange({
-                        target: { value: date, name: "startDate" },
+                        target: { value: date, name: 'startDate' },
                       })
                     }
                   />
                   {errors.startDate && (
-                    <p className={styles["birthdate-required"]}>
+                    <p className={styles['birthdate-required']}>
                       {errors.startDate}
                     </p>
                   )}
@@ -162,7 +162,7 @@ const RegisterV2 = () => {
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Control
                       required
-                      className={styles["form-controller-second-col"]}
+                      className={styles['form-controller-second-col']}
                       type="text"
                       placeholder="Username"
                       name="username"
@@ -173,12 +173,12 @@ const RegisterV2 = () => {
                   </Form.Group>
 
                   <Form.Group
-                    className={styles["mb-3"]}
+                    className={styles['mb-3']}
                     controlId="formBasicPassword"
                   >
                     <Form.Control
                       required
-                      className={styles["form-controller-second-col2"]}
+                      className={styles['form-controller-second-col2']}
                       type="password"
                       name="password"
                       placeholder="Password"
@@ -189,12 +189,12 @@ const RegisterV2 = () => {
                   </Form.Group>
 
                   <Form.Group
-                    className={styles["mb-3"]}
+                    className={styles['mb-3']}
                     controlId="formBasicPassword"
                   >
                     <Form.Control
                       required
-                      className={styles["form-controller-second-col3"]}
+                      className={styles['form-controller-second-col3']}
                       type="password"
                       name="confirm_password"
                       placeholder="Confirm Password"
@@ -207,7 +207,7 @@ const RegisterV2 = () => {
                   </Form.Group>
 
                   <Button
-                    className={styles["button-create-account"]}
+                    className={styles['button-create-account']}
                     variant="primary"
                     type="submit"
                     onClick={handleSubmit}
@@ -215,22 +215,22 @@ const RegisterV2 = () => {
                     Create Account
                   </Button>
 
-                  <p className={styles["or-text"]}>- or -</p>
+                  <p className={styles['or-text']}>- or -</p>
 
-                  <div className={styles["button-container"]}>
+                  <div className={styles['button-container']}>
                     <Button
                       disabled
-                      className={styles["button-sign-in-google"]}
+                      className={styles['button-sign-in-google']}
                       variant="primary"
                       type="submit"
                     >
                       Sign in with Google
                     </Button>
                   </div>
-                  <div className={styles["button-container"]}>
+                  <div className={styles['button-container']}>
                     <Button
                       disabled
-                      className={styles["button-sign-in-facebook"]}
+                      className={styles['button-sign-in-facebook']}
                       variant="primary"
                       type="submit"
                     >
