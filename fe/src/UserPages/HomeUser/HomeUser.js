@@ -105,7 +105,7 @@ const HomeUser = () => {
               </Col>
             </Row>
             <Container className={styles['title-pos']} fluid>
-              <Link to="/services">
+              <Link to="/services-user">
                 <button className={styles['btn-modal']}>Order Now</button>
               </Link>
             </Container>
