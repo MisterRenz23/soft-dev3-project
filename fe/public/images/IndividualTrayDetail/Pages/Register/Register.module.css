@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@100&family=Roboto:wght@100;300&display=swap");
+
+.page-container {
+  height: 100vh;
+  background-image: url(/public/images/login-register-background.png);
+  background-size: cover;
+}
+
+.whole-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.first-box {
+  margin: 20px;
+  width: 822px;
+  height: auto;
+  background-color: #c4b4bc;
+  border-radius: 14px;
+}
+
+.h2-text {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 25.45px;
+  letter-spacing: -0.5%;
+  margin-top: 53px;
+  margin-left: 43px;
+  margin-bottom: 8px;
+}
+
+.h3-text {
+  margin-left: 43px;
+  font-size: 13px;
+  width: 244px;
+  height: 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 106.02%;
+  letter-spacing: -0.005em;
+  margin-bottom: 24px;
+}
+
+.login-link {
+  color: #3366cc;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+
+.form-controller {
+  width: inherit;
+  height: 40.03px;
+  margin-left: 50px;
+  /* margin-bottom: 14.82px; */
+  margin-top: 14.82px;
+  width: 86%;
+}
+
+.form-controller-second-col {
+  margin-top: 124px;
+  width: 78%;
+  height: 54px;
+  border-radius: 8px;
+  margin-left: 60px;
+}
+
+.second-form-controller {
+  width: 86%;
+}
+
+.form-controller-second-col2 {
+  width: 78%;
+  height: 54px;
+  border-radius: 8px;
+  margin-top: 18px;
+  margin-left: 60px;
+}
+.form-controller-second-col3 {
+  width: 78%;
+  height: 54px;
+  border-radius: 8px;
+  margin-top: 22px;
+  margin-left: 60px;
+}
+
+.button-create-account {
+  width: 78%;
+  height: 42px;
+  margin-top: 22px;
+  background-color: #ffaa55;
+  color: #1c1919;
+  border: none;
+  border-radius: 21;
+  box-shadow: 0px 1px 13px 1px rgba(0, 0, 0, 0.25);
+  margin-left: 60px;
+}
+
+.or-text {
+  margin-left: 35px;
+  margin-top: 24px;
+  margin-bottom: 17px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 106.02%;
+  font-family: "Inter", sans-serif;
+}
+
+.button-sign-in-google {
+  background-color: #ffffff;
+  border-radius: 19px;
+  color: black;
+  border: none;
+  margin-bottom: 14.34px;
+  margin-left: 60px;
+  width: 78%;
+}
+
+.button-sign-in-google:disabled {
+  background-color: #ffffff;
+  border-radius: 19px;
+  color: black;
+  border: none;
+  margin-bottom: 14.34px;
+  margin-left: 60px;
+  width: 78%;
+}
+
+.button-sign-in-google:hover {
+  background-color: rgb(80, 76, 76);
+}
+
+.button-sign-in-google::before {
+  content: url(/public/images/google-logo.png);
+  position: relative;
+  bottom: -3px;
+  margin-right: 10px;
+}
+
+.button-sign-in-facebook {
+  background-color: #475a96;
+  border: none;
+  width: 78%;
+  border-radius: 19px;
+  margin-left: 60px;
+  margin-bottom: 63.34px;
+}
+
+.button-sign-in-facebook::before {
+  content: url(/public/images/facebook-logo.png);
+  position: relative;
+  bottom: -5px;
+  margin-right: 10px;
+  top: 5px;
+}
+
+.button-sign-in-facebook:hover {
+  color: white;
+}
+
+.birthdate-required {
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .button-sign-in-facebook {
+    background-color: #475a96;
+    border: none;
+    width: 70%;
+    border-radius: 19px;
+    margin-left: 60px;
+    margin-top: 0px;
+  }
+
+  .form-controller {
+    width: inherit;
+    height: 40.03px;
+    margin-left: 50px;
+    margin-top: 14.82px;
+    width: 86%;
+    font-size: 0.8rem;
+  }
+
+  .button-sign-in-google {
+    background-color: #ffffff;
+    border-radius: 19px;
+    color: black;
+    border: none;
+    margin-left: 60px;
+    width: 70%;
+    margin-top: 0px;
+  }
+
+  .button-sign-in-google:disabled {
+    background-color: #ffffff;
+    border-radius: 19px;
+    color: black;
+    border: none;
+    margin-bottom: 9px;
+    margin-left: 60px;
+    width: 70%;
+  }
+
+  .form-controller-second-col {
+    margin-top: 124px;
+    width: 70%;
+    height: 54px;
+    border-radius: 8px;
+    margin-left: 60px;
+    font-size: 0.8rem;
+  }
+
+  .form-controller-second-col2 {
+    width: 70%;
+    height: 54px;
+    border-radius: 8px;
+    margin-top: 18px;
+    margin-left: 60px;
+    font-size: 0.8rem;
+  }
+  .form-controller-second-col3 {
+    width: 70%;
+    height: 54px;
+    border-radius: 8px;
+    margin-top: 22px;
+    margin-left: 60px;
+    font-size: 0.8rem;
+  }
+
+  .button-create-account {
+    width: 70%;
+    height: 42px;
+    margin-top: 22px;
+    background-color: #ffaa55;
+    color: #1c1919;
+    border: none;
+    border-radius: 21;
+    box-shadow: 0px 1px 13px 1px rgba(0, 0, 0, 0.25);
+    margin-left: 60px;
+    font-size: 0.8rem;
+  }
+
+  .button-sign-in-google {
+    background-color: #ffffff;
+    border-radius: 19px;
+    color: black;
+    border: none;
+    margin-left: 60px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .button-sign-in-google {
+    background-color: #ffffff;
+    border-radius: 19px;
+    color: black;
+    border: none;
+    margin-left: 60px;
+    width: 70%;
+    height: 40px;
+    font-size: 8px;
+    margin-bottom: 0px;
+  }
+
+  .button-sign-in-facebook {
+    background-color: #475a96;
+    border: none;
+    width: 70%;
+    border-radius: 19px;
+    height: 40px;
+    font-size: 8px;
+    margin-top: 0px;
+  }
+
+  .button-sign-in-facebook::before {
+    position: relative;
+    bottom: -5px;
+  }
+
+  .or-text {
+    margin-left: 70px;
+    margin-top: 24px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 106.02%;
+    font-family: "Inter", sans-serif;
+  }
+
+  .or-text {
+    margin-left: 55px;
+  }
+}
+
+.or-text {
+  color: black;
+}

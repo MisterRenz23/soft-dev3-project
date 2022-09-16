@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './SetC.module.css';
+import AuthModal from '../AuthModal/AuthModal';
 
 const SetC = () => {
   return (
@@ -22,18 +23,16 @@ const SetC = () => {
         <Row>
           <Col>
             <Container fluid>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles['food-link']}>Cordon Bleu</h5>
-              </Link>
+              <h5 className={styles['food-link']}>Cordon Bleu</h5>
+
               <p className={styles.paragraph}>
                 A cordon bleu or schnitzel cordon bleu is a dish of meat wrapped
                 around cheese , then breaded and pan-fried or deep fried.
               </p>
             </Container>
             <Container fluid>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles['food-link']}>Chopsuey</h5>
-              </Link>
+              <h5 className={styles['food-link']}>Chopsuey</h5>
+
               <p className={styles.paragraph}>
                 a dish prepared chiefly from bean sprouts, bamboo shoots, water
                 chestnuts, onions, mushrooms, and meat or fish and served with
@@ -41,63 +40,38 @@ const SetC = () => {
               </p>
             </Container>
             <Container fluid>
-              <h5 className={styles['food-link']}>Desserts</h5>
-
+              <h5> Note:</h5>
               <p className={styles.paragraph}>
+                Desserts are also available in{' '}
+                <Link to="/services-user/individual-order">
+                  Individual Order
+                </Link>{' '}
                 (add ₱ 500 each, good for 10-15 persons)
               </p>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles.dessert}>• Ube Maja Blanca</h5>
-              </Link>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles.dessert}>• Mango Gulaman</h5>
-              </Link>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles.dessert}>• Buko Pandan</h5>
-              </Link>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles.dessert}>• Mango Float</h5>
-              </Link>
             </Container>
           </Col>
           <Col>
             <Container fluid>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles['food-link']}>Fried Chicken</h5>
-              </Link>
+              <h5 className={styles['food-link']}>Fried Chicken</h5>
+
               <p className={styles.paragraph}>
                 Deliciously crispy fried chicken with a crunchy coating on the
                 outside and juicy, tender chicken inside.
               </p>
             </Container>
             <Container fluid>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles['food-link']}>Spaghetti</h5>
-              </Link>
+              <h5 className={styles['food-link']}>Spaghetti</h5>
+
               <p className={styles.paragraph}>
                 Spaghetti (Italian: [spaˈɡetti]) is a long, thin, solid,
                 cylindrical pasta. It is a staple food of traditional Italian
                 cuisine.
               </p>
             </Container>
-            <Container fluid>
-              <h5 className={styles['food-link']}>
-                Dishes available for customization:
-              </h5>
-
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles.dessert}>• Buffalo Wings</h5>
-              </Link>
-              <Link to="/services" className={styles.link}>
-                <h5 className={styles.dessert}>• Humba</h5>
-              </Link>
-            </Container>
           </Col>
         </Row>
         <Container fluid className={styles['button-container']}>
-          <Link to="/services">
-            <button className={styles.button}>INQUIRE NOW</button>
-          </Link>
+          <AuthModal />
         </Container>
       </Container>
     </Container>

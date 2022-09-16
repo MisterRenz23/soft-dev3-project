@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import NavBarComponent from '../../components/NavBarComponent/NavBarComponent';
 import Splash from '../Splash/Splash';
-import { Container, Image, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Image, Row, Col, Card } from 'react-bootstrap';
 import styles from './IndividualOrder.module.css';
 import chicken from '../../assets/chicken.png';
 import bleu from '../../assets/cordonbleu.png';
@@ -13,8 +12,11 @@ import lumpia from '../../assets/lumpia.png';
 import beef from '../../assets/BeefSteak.png';
 import bami from '../../assets/bami.png';
 import spag from '../../assets/spag.png';
-import humba from '../../assets/humba.png';
-import wings from '../../assets/wings.png';
+import float from '../../assets/float.png';
+import pandan from '../../assets/pandan.png';
+import maja from '../../assets/maja.png';
+import './IndividualOrder.css';
+import IndividualBtn from './IndividualBtn';
 
 const IndividualOrder = () => {
   const [loading, setLoading] = useState(false);
@@ -58,9 +60,7 @@ const IndividualOrder = () => {
                         Deliciously crispy fried chicken with a crunchy coating
                         on the outside and juicy, tender chicken inside.
                       </Card.Text>
-                      <Link to="/services/individual-order/1">
-                        <Button variant="primary">Order Now</Button>
-                      </Link>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -73,7 +73,7 @@ const IndividualOrder = () => {
                         A cordon bleu is a dish of meat wrapped around cheese ,
                         then breaded and pan-fried or deep fried.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -86,7 +86,7 @@ const IndividualOrder = () => {
                         The sweet taste of this dish is attributed to the soda.
                         It also blends well with butter and garlic.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -102,7 +102,7 @@ const IndividualOrder = () => {
                         shoots, water chestnuts, onions, mushrooms, and meat or
                         fish.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -116,7 +116,7 @@ const IndividualOrder = () => {
                         breadcrumbs and gently pan-fried in oil and butter until
                         crispy, flaky, and golden.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -130,7 +130,7 @@ const IndividualOrder = () => {
                         noodles, rice noodles, and a variety vegetables and
                         meats.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -145,7 +145,7 @@ const IndividualOrder = () => {
                         Bistek is a dish made of thinly sliced beef braised in a
                         mixture of calamnsi juice, soy sauce, pepper, and etc.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -158,7 +158,7 @@ const IndividualOrder = () => {
                         Filipino-style spring roll made of ground pork, chicken
                         filling wrapped in thin crepes called lumpia wrappers.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
@@ -171,7 +171,51 @@ const IndividualOrder = () => {
                         Spaghetti is a long, thin, solid, cylindrical pasta. It
                         is a staple food of traditional Italian cuisine.
                       </Card.Text>
-                      <Button variant="primary">Order Now</Button>
+                      <IndividualBtn />
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+              <Row>
+                <Col className={styles['pic-pos']}>
+                  <Card style={{ width: '30rem' }}>
+                    <Card.Img variant="top" src={pandan} />
+                    <Card.Body>
+                      <Card.Title>Buko Pandan</Card.Title>
+                      <Card.Text>
+                        Buko Pandan is a popular Filipino Dessert made using
+                        young coconut, pandan leaves (or Screwpine leaves), and
+                        sago pearls.
+                      </Card.Text>
+                      <IndividualBtn />
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col className={styles['pic-pos']}>
+                  <Card style={{ width: '30rem' }}>
+                    <Card.Img variant="top" src={maja} />
+                    <Card.Body>
+                      <Card.Title>Ube Maja Blanca</Card.Title>
+                      <Card.Text>
+                        Maja Blanca is a Filipino dessert made from coconut
+                        milk, cornstarch, and sugar. Often called Coconut
+                        Pudding.
+                      </Card.Text>
+                      <IndividualBtn />
+                    </Card.Body>
+                  </Card>
+                </Col>
+                <Col className={styles['pic-pos']}>
+                  <Card style={{ width: '30rem' }}>
+                    <Card.Img variant="top" src={float} />
+                    <Card.Body>
+                      <Card.Title>Mango Float</Card.Title>
+                      <Card.Text>
+                        This Filipino icebox dessert consists of layers of
+                        graham crackers, sweetened whipped cream, and ripe
+                        mango.
+                      </Card.Text>
+                      <IndividualBtn />
                     </Card.Body>
                   </Card>
                 </Col>
