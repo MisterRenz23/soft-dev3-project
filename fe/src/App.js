@@ -20,6 +20,17 @@ import IndividualOrder from './Pages/IndividualOrder/IndividualOrder';
 import SetOrderUser from './UserPages/SetOrderUser/SetOrderUser';
 import IndividualOrderUser from './UserPages/IndividualOrderUser/IndividualOrderUser';
 import ProductOne from './components/IndividualProduct/ProductOne';
+import ProductTwo from './components/IndividualProduct/ProductTwo';
+import ProductThree from './components/IndividualProduct/ProductThree';
+import ProductFour from './components/IndividualProduct/ProductFour';
+import ProductFive from './components/IndividualProduct/ProductFive';
+import ProductSix from './components/IndividualProduct/ProductSix';
+import ProductSeven from './components/IndividualProduct/ProductSeven';
+import ProductEight from './components/IndividualProduct/ProductEight';
+import ProductNine from './components/IndividualProduct/ProductNine';
+import ProductTwelve from './components/IndividualProduct/ProductTwelve';
+import ProductEleven from './components/IndividualProduct/ProductEleven';
+import ProductTen from './components/IndividualProduct/ProductTen';
 
 const App = () => {
   return (
@@ -65,9 +76,64 @@ const App = () => {
           element={<IndividualOrderUser />}
         ></Route>
         <Route
-          path="/services/individual-order/1"
+          path="/services-user/individual-order/1"
           exact
           element={<ProductOne />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/2"
+          exact
+          element={<ProductTwo />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/3"
+          exact
+          element={<ProductThree />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/4"
+          exact
+          element={<ProductFour />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/5"
+          exact
+          element={<ProductFive />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/6"
+          exact
+          element={<ProductSix />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/7"
+          exact
+          element={<ProductSeven />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/8"
+          exact
+          element={<ProductEight />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/9"
+          exact
+          element={<ProductNine />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/10"
+          exact
+          element={<ProductTen />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/11"
+          exact
+          element={<ProductEleven />}
+        ></Route>
+        <Route
+          path="/services-user/individual-order/12"
+          exact
+          element={<ProductTwelve />}
         ></Route>
       </Routes>
     </BrowserRouter>

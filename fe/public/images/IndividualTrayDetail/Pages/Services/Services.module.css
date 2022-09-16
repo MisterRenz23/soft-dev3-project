@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-container {
+  height: 100%;
+  background-color: #f6f2ee;
+}
+
+.header-container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.h2-text {
+  font-size: 24px;
+  line-height: 31px;
+  font-style: normal;
+  font-family: "DM Sans", sans-serif;
+  margin-top: 42px;
+  font-weight: 700;
+}
+
+.h1-text {
+  font-size: 36px;
+  line-height: 44px;
+  font-style: normal;
+  font-family: "Inter", sans-serif;
+  color: #66002d;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.p-text {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  margin-bottom: 57px;
+}
+
+.box-container {
+  align-items: center;
+  justify-content: center;
+}
+
+.box-1 {
+  width: 432px;
+  height: 508px;
+  background: #d9d9d9;
+  border: 2px solid #66002d;
+}
+
+.box-2 {
+  width: 432px;
+  height: 508px;
+  background: #d9d9d9;
+  border: 2px solid #66002d;
+}
+
+.picture-container-box1 {
+  background-image: url(/public/images/services-food-package.svg);
+  background-size: cover;
+  height: 246px;
+  border: 0px;
+}
+
+.picture-container-box2 {
+  background-image: url(/public/images/services-individual-trays.svg);
+  background-size: cover;
+  height: 246px;
+  border: 0;
+}
+
+.box-1-h1-text {
+  margin-top: 22px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.03em;
+}
+
+.box-text-container {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.button-view-menu {
+  width: 145px;
+  height: 39px;
+  background: #7a2f50;
+  border: 0px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 190.02%;
+}
+
+@media (min-width: 870px) {
+  .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box-1 {
+    height: 520px;
+    background: #d9d9d9;
+    border: 2px solid #66002d;
+  }
+  .box-2 {
+    height: 520px;
+    background: #d9d9d9;
+    border: 2px solid #66002d;
+  }
+}
+
+@media (max-width: 870px) {
+  .box-container {
+    align-items: center;
+    justify-content: center;
+    display: grid;
+  }
+
+  .box-1 {
+    height: 508px;
+    background: #d9d9d9;
+    border: 2px solid #66002d;
+    margin-bottom: 20px;
+  }
+
+  .box-2 {
+    height: 508px;
+    background: #d9d9d9;
+    border: 2px solid #66002d;
+    margin-bottom: 20px;
+  }
+
+  .page-container {
+    height: 100%;
+    background-color: #f6f2ee;
+  }
+
+  .button-view-menu {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 870px) {
+  .box-1 {
+    margin-right: 50px;
+    margin-left: 20px;
+  }
+
+  .box-2 {
+    margin-right: 20px;
+  }
+}
