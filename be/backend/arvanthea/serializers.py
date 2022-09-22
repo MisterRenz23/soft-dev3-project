@@ -1,4 +1,4 @@
-from .models import User, RegisteredUser
+from .models import Product, User, RegisteredUser
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 
@@ -105,3 +105,10 @@ class LoginSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(msg, code='authorization')
         attrs['user'] = user
         return attrs
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('id', 'user', 'product_name',
+                  'product_price', 'product_quantity')
