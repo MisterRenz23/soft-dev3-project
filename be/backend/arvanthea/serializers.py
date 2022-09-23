@@ -110,5 +110,5 @@ class LoginSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'user', 'product_name',
-                  'product_price', 'product_quantity')
+        fields = ['id', 'title', 'image',
+                  'description', 'price', 'pieces', 'slug']
