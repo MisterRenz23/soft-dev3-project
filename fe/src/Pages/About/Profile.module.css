@@ -4,10 +4,6 @@
   text-align: center;
 }
 
-.profile-container img {
-  width: 100%;
-}
-
 .text-name,
 .text-position {
   margin: 0;
@@ -29,7 +25,13 @@
   line-height: 16px;
 }
 
-@media (max-width: 712px) {
+@media (max-width: 1155px) {
+  .profile-container img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 855px) {
   .profile-container img {
     width: auto;
   }
