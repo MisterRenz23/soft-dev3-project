@@ -15,14 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from arvanthea.views import RegisterAPI, LoginAPI, UserDetailAPI, ProductView
+from django.conf import settings
+from django.conf.urls.static import static
+from arvanthea.views import RegisterAPI, LoginAPI, UserDetailAPI, ProductView, ProductCreateView, ProductDeleteView, ProductUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/register', RegisterAPI.as_view()),
     path('user/login', LoginAPI.as_view()),
     path('user/profile', UserDetailAPI.as_view()),
-    path('user/product', ProductView.as_view({'get': 'list',
-                                             'post': 'create'})),
+    path('user/product_list', ProductView.as_view({'get': 'list'})),
+    path('user/product/new/', ProductCreateView.as_view(), name='product-create'),
+    path('user/product-update/<slug>/',
+         ProductUpdateView.as_view(), name='product-update'),
+    path('user/product-delete/<slug>/',
+         ProductDeleteView.as_view(), name='product-delete'),
 
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

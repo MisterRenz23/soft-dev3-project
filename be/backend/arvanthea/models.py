@@ -1,6 +1,8 @@
-
+from decimal import Decimal
 from pyexpat import model
 from django.db import models
+from django.shortcuts import reverse
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import PermissionsMixin
@@ -27,13 +29,36 @@ class RegisteredUser(models.Model):
 
 
 class Product(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product_name = models.TextField()
-    product_price = models.DecimalField(max_digits=5, decimal_places=2)
-    product_quantity = models.IntegerField()
+    title = models.CharField(max_length=150)
+    description = models.CharField(max_length=250, blank=True)
+    price = models.DecimalField(decimal_places=2, max_digits=6)
+    pieces = models.IntegerField()
+    image = models.ImageField(upload_to='images/', null=False, blank=False)
+    slug = models.SlugField(default="foods")
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.product_name) + ": ₱" + str(self.product_price) + ":" + str(self.product_quantity)
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("main:dishes", kwargs={
+            'slug': self.slug
+        })
+
+    def get_add_to_cart_url(self):
+        return reverse("main:add-to-cart", kwargs={
+            'slug': self.slug
+        })
+
+    def get_item_delete_url(self):
+        return reverse("main:product-delete", kwargs={
+            'slug': self.slug
+        })
+
+    def get_update_item_url(self):
+        return reverse("main:product-update", kwargs={
+            'slug': self.slug
+        })
 
 
 class Order(models.Model):
@@ -49,3 +74,49 @@ class Payment(models.Model):
     payment = models.ForeignKey(Order, on_delete=models.CASCADE)
     amount_to_pay = models.FloatField()
     payment_type = models.CharField(max_length=50)
+
+
+class Feedback(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rslug = models.SlugField()
+    feedback = models.TextField()
+    posted_on = models.DateField(default=timezone.now)
+
+    class Meta:
+        verbose_name = 'Feedback'
+        verbose_name_plural = 'Feedbacks'
+
+    def __str__(self):
+        return self.feedback
+
+
+class CartItems(models.Model):
+    ORDER_STATUS = (
+        ('Active', 'Active'),
+        ('Delivered', 'Delivered')
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
+    quantity = models.IntegerField(default=1)
+    ordered_date = models.DateField(default=timezone.now)
+    status = models.CharField(
+        max_length=20, choices=ORDER_STATUS, default='Active')
+    delivery_date = models.DateField(default=timezone.now)
+
+    class Meta:
+        verbose_name = 'Cart Item'
+        verbose_name_plural = 'Cart Items'
+
+    def __str__(self):
+        return self.item.title
+
+    def get_remove_from_cart_url(self):
+        return reverse("main:remove-from-cart", kwargs={
+            'pk': self.pk
+        })
+
+    def update_status_url(self):
+        return reverse("main:update_status", kwargs={
+            'pk': self.pk
+        })
