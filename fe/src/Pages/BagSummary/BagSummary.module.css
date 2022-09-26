@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+
+.page-container {
+  background-color: #f6f2ee;
+  height: 100vh;
+}
+
+.content {
+  background-color: #f6f2ee;
+}
+
+.title-text {
+  text-align: center;
+  color: #66002d;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0.05em;
+
+  margin-top: 90px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.box-summary {
+  width: 602px;
+  height: 516px;
+  background: rgba(177, 162, 169, 0.67);
+  border-radius: 15px;
+  margin-left: 82px;
+  margin-bottom: 30px;
+  margin-top: 63px;
+}
+
+.title-order {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-left: 27px;
+  margin-bottom: 17px;
+  padding-top: 43px;
+}
+
+.horizontal-line {
+  display: flex;
+  width: 548px;
+  border: 1px solid #000000;
+  margin-left: 27px;
+  margin-bottom: 30px;
+}
+
+.horizontal-line-total {
+  width: 150px;
+  height: 0px;
+  border: 0.5px solid #000000;
+  margin-left: 411px;
+  margin-bottom: 21px;
+  margin-top: 25px;
+}
+
+.total-text {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #000;
+  margin-left: 318px;
+  margin-bottom: 0px;
+}
+
+.total-product-price {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #000;
+  margin-left: 56px;
+  margin-bottom: 0px;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.cart-products {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.checkout-button {
+  width: 271px;
+  height: 56px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  background-color: #66002d;
+  border-radius: 15px;
+  margin-left: 301px;
+  margin-top: 46px;
+}
+
+.title-order-one {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-left: 122px;
+  margin-bottom: 13px;
+  margin-top: 110px;
+}
+
+.horizontal-line-two {
+  width: 548px;
+  border: 1px solid #000000;
+  margin-left: 67px;
+}
+
+.information {
+  margin-left: 74px;
+  margin-top: 16px;
+}
+
+.information h4 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.05em;
+  color: #66002d;
+  margin-bottom: 23px;
+}
+
+.information p {
+  width: 553px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1285px) {
+  .title-order-one {
+    font-size: 25px;
+    margin-left: 40px;
+  }
+
+  .information {
+    margin-left: 40px;
+  }
+
+  .information p {
+    width: 450px;
+    font-size: 15px;
+  }
+  .information h4 {
+    font-size: 19px;
+  }
+
+  .horizontal-line-two {
+    width: 400px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1112px) {
+  .title-order-one {
+    font-size: 20px;
+    margin-left: 35px;
+  }
+
+  .information {
+    margin-left: 40px;
+  }
+
+  .information p {
+    width: 300px;
+    font-size: 15px;
+  }
+  .information h4 {
+    font-size: 19px;
+  }
+
+  .horizontal-line-two {
+    width: 500px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1112px) {
+  .horizontal-line-two {
+    width: 320px;
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 1029px) {
+  .instruction-text {
+    background-color: #f6f2ee;
+  }
+
+  .title-text {
+    margin-bottom: 63px;
+  }
+  .content {
+    display: block;
+  }
+
+  .box-summary {
+    width: auto;
+    margin: 0px 200px 0px 200px;
+  }
+
+  .horizontal-line {
+    display: flex;
+    width: auto;
+    margin-left: 0px;
+  }
+
+  .horizontal-line-total {
+    width: auto;
+    height: 0px;
+    border: 0.5px solid #000000;
+    margin-right: 10px;
+    margin-left: 400px;
+  }
+
+  .title-order-one {
+    font-size: 35px;
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .information {
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .information p {
+    width: auto;
+    font-size: 15px;
+  }
+  .information h4 {
+    font-size: 19px;
+  }
+
+  .horizontal-line-two {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1029px) {
+  .horizontal-line-two {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .instruction-text {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 995px) {
+  .checkout-button {
+    margin-left: 0px;
+    float: right;
+    margin-top: 40px;
+    width: auto;
+    font-size: 15px;
+    margin-right: 15px;
+  }
+
+  .total-product-price {
+    font-size: 15px;
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 940px) {
+  .total-text {
+    margin-left: 290px;
+  }
+
+  .horizontal-line-total {
+    margin-right: 10px;
+    margin-left: 370px;
+  }
+}
+
+@media (max-width: 912px) {
+  .total-text {
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 884px) {
+  .total-text {
+    margin-left: 240px;
+  }
+  .horizontal-line-total {
+    margin-right: 10px;
+    margin-left: 330px;
+  }
+}
+
+@media (max-width: 857px) {
+  .total-text {
+    margin-left: 220px;
+  }
+
+  .horizontal-line-total {
+    margin-right: 10px;
+    margin-left: 310px;
+  }
+}
+
+@media (max-width: 857px) {
+  .box-summary {
+    margin: 0px 180px 0px 180px;
+  }
+}
+
+@media (max-width: 797px) {
+  .box-summary {
+    margin: 0px 150px 0px 150px;
+  }
+}
+
+@media (max-width: 737px) {
+  .box-summary {
+    margin: 0px 100px 0px 100px;
+  }
+}
+
+@media (max-width: 637px) {
+  .box-summary {
+    margin: 0px 80px 0px 80px;
+  }
+}
+
+@media (max-width: 597px) {
+  .box-summary {
+    margin: 0px 50px 0px 50px;
+  }
+}
+
+@media (max-width: 537px) {
+  .box-summary {
+    margin: 0px 10px 0px 10px;
+    width: 97%;
+  }
+}
