@@ -6,7 +6,7 @@ import API from '../../API';
 const Individual = () => {
     const [products, setProducts] = useState([])
     const getProducts = async () => {
-        const response = await API.get('user/product_list')
+        const response = await API.get('user/product_list/')
         setProducts(response.data)
     }
 
@@ -24,7 +24,7 @@ const Individual = () => {
                         <Card.Body>
                             <Card.Title> {product.title} </Card.Title>
                             <Card.Text>{product.description}</Card.Text>
-                            <Link to="/services-user/individual-order/1">
+                            <Link to={`/services-user/individual-order/${product.id}`}>
                                 <Button variant="primary">Order Now</Button>
                             </Link>
                         </Card.Body>
