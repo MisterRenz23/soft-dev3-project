@@ -1,37 +1,25 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
-import RegisterSuccess from "./Pages/RegisterSuccess/RegisterSuccess";
-import About from "./Pages/About/About";
-import Services from "./Pages/Services/Services";
-import Faqs from "./Pages/Faqs/Faqs";
-import Feedback from "./Pages/Feedback/Feedback";
-import Profile from "./Pages/Profile/Profile";
-import EditProfile from "./Pages/EditProfile/EditProfile";
-import HomeUser from "./UserPages/HomeUser/HomeUser";
-import AboutUser from "./UserPages/AboutUser/AboutUser";
-import FaqsUser from "./UserPages/FaqsUser/FaqsUser";
-import ServicesUser from "./UserPages/ServicesUser/ServicesUser";
-import FeedbackUser from "./UserPages/FeedbackUser/Feedback";
-import SetOrder from "./Pages/SetOrder/SetOrder";
-import IndividualOrder from "./Pages/IndividualOrder/IndividualOrder";
-import SetOrderUser from "./UserPages/SetOrderUser/SetOrderUser";
-import IndividualOrderUser from "./UserPages/IndividualOrderUser/IndividualOrderUser";
-import ProductOne from "./components/IndividualProduct/ProductOne";
-import ProductTwo from "./components/IndividualProduct/ProductTwo";
-import ProductThree from "./components/IndividualProduct/ProductThree";
-import ProductFour from "./components/IndividualProduct/ProductFour";
-import ProductFive from "./components/IndividualProduct/ProductFive";
-import ProductSix from "./components/IndividualProduct/ProductSix";
-import ProductSeven from "./components/IndividualProduct/ProductSeven";
-import ProductEight from "./components/IndividualProduct/ProductEight";
-import ProductNine from "./components/IndividualProduct/ProductNine";
-import ProductTwelve from "./components/IndividualProduct/ProductTwelve";
-import ProductEleven from "./components/IndividualProduct/ProductEleven";
-import ProductTen from "./components/IndividualProduct/ProductTen";
-import BagSummary from "./Pages/BagSummary/BagSummary";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
+import RegisterSuccess from './Pages/RegisterSuccess/RegisterSuccess';
+import About from './Pages/About/About';
+import Services from './Pages/Services/Services';
+import Faqs from './Pages/Faqs/Faqs';
+import Feedback from './Pages/Feedback/Feedback';
+import Profile from './Pages/Profile/Profile';
+import EditProfile from './Pages/EditProfile/EditProfile';
+import HomeUser from './UserPages/HomeUser/HomeUser';
+import AboutUser from './UserPages/AboutUser/AboutUser';
+import FaqsUser from './UserPages/FaqsUser/FaqsUser';
+import ServicesUser from './UserPages/ServicesUser/ServicesUser';
+import FeedbackUser from './UserPages/FeedbackUser/Feedback';
+import SetOrder from './Pages/SetOrder/SetOrder';
+import IndividualOrder from './Pages/IndividualOrder/IndividualOrder';
+import SetOrderUser from './UserPages/SetOrderUser/SetOrderUser';
+import IndividualOrderUser from './UserPages/IndividualOrderUser/IndividualOrderUser';
+import IndividualTrayDetail from './components/IndividualTrayDetail/IndividualTrayDetail'
 
 const App = () => {
   return (
@@ -78,65 +66,11 @@ const App = () => {
           element={<IndividualOrderUser />}
         ></Route>
         <Route
-          path="/services-user/individual-order/1"
+          path="/services-user/individual-order/:id/"
           exact
-          element={<ProductOne />}
+          element={<IndividualTrayDetail />}
         ></Route>
-        <Route
-          path="/services-user/individual-order/2"
-          exact
-          element={<ProductTwo />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/3"
-          exact
-          element={<ProductThree />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/4"
-          exact
-          element={<ProductFour />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/5"
-          exact
-          element={<ProductFive />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/6"
-          exact
-          element={<ProductSix />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/7"
-          exact
-          element={<ProductSeven />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/8"
-          exact
-          element={<ProductEight />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/9"
-          exact
-          element={<ProductNine />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/10"
-          exact
-          element={<ProductTen />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/11"
-          exact
-          element={<ProductEleven />}
-        ></Route>
-        <Route
-          path="/services-user/individual-order/12"
-          exact
-          element={<ProductTwelve />}
-        ></Route>
+
       </Routes>
     </BrowserRouter>
   );

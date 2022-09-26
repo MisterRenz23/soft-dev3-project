@@ -1,20 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import styles from './IndividualTrayDetail.module.css';
 import { VscAdd } from 'react-icons/vsc';
 import { VscChromeMinimize } from 'react-icons/vsc';
 import { Button } from 'react-bootstrap';
 import { FiArrowLeft } from 'react-icons/fi';
+import API from '../../API';
 
-const IndividualTrayDetail = ({
-  ProductName,
-  ProductPrice,
-  ProductServing,
-  ProductDescription,
-  ProductID,
-  ProductImage,
-}) => {
+const IndividualTrayDetail = () => {
+
+  const [product, setProduct] = useState([])
+  const { id } = useParams();
   const [count, setCount] = useState(0);
+
+  const getSingleProduct = async () => {
+    const { data } = await API.get(`/user/product_list/${id}/`)
+    console.log(data);
+    setProduct(data);
+  }
+
+  useEffect(() => {
+    getSingleProduct();
+  }, [])
+
   return (
     <div className={styles['background']}>
       <div className={styles['page-container']}>
@@ -27,7 +35,7 @@ const IndividualTrayDetail = ({
         <div className={styles['page-content']}>
           <div className={styles['image-container']}>
             <img
-              src={`/images/IndividualTrayDetail/${ProductImage}`}
+              src={product.image}
               className={styles['image-size']}
               alt="Product"
             />
@@ -35,19 +43,19 @@ const IndividualTrayDetail = ({
           <div className={styles['product-text']}>
             <div className={styles['name-price-inline']}>
               <h1 className={styles['product-name']}>
-                {ProductName}
+                {product.title}
 
                 <span className={styles['product-price']}>
-                  ₱ {ProductPrice}.00
+                  ₱ {product.price}
                 </span>
               </h1>
             </div>
 
             <p className={styles['product-serving']}>
-              Good for {ProductServing} persons
+              Good for 10 - 15 persons
             </p>
             <p className={styles['product-description']}>
-              {ProductDescription}
+              {product.description}
             </p>
             <div className={styles['counter']}>
               <button
