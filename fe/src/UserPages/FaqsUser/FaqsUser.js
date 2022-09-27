@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container, Accordion } from "react-bootstrap";
-import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
+
 import Footer from "../../components/footer/Footer";
 import styles from "./Faqs.module.css";
 import Splash from "../../Pages/Splash/Splash";
 import "./Faqs.css";
 import { Link } from "react-router-dom";
+import NavbarUser from "../../components/NavbarUser/NavbarUser";
 
 const FaqsUser = () => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ const FaqsUser = () => {
         <Splash loading="loading" />
       ) : (
         <div>
-          <NavBarComponent />
+          <NavbarUser />
           <Container fluid className={styles.accordion}>
             <Container className={styles.pos}>
               <Container className={styles["faqs-text"]}>
