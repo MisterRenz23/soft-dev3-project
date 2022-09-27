@@ -33,11 +33,11 @@ class CartItemsAdmin(admin.ModelAdmin):
     list_filter = ('ordered', 'ordered_date', 'status')
 
 
-class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ('user', 'feedback', 'posted_on')
+# class FeedbackAdmin(admin.ModelAdmin):
+#     fieldsets = ('feedback')
 
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(CartItems, CartItemsAdmin)
-admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(Feedback)
