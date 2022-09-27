@@ -67,7 +67,7 @@
 
 .feedback-background {
   background-color: #fbfaf9;
-  width: 100%;
+  width: 90%;
   height: 10%;
   border-radius: 10px;
 }
@@ -76,4 +76,9 @@
   font-size: 20px;
   padding-top: 1.5%;
   padding-bottom: 1.5%;
+}
+
+.form {
+  background: #fbfaf9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }

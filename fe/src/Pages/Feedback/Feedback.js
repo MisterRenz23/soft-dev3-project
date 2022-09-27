@@ -48,7 +48,7 @@ const Feedback = () => {
               <h5 className={styles.common}>LEAVE US A REVIEW</h5>
             </Container>
             <Container fluid className={styles['text-area']}>
-              <Form>
+              <Form className={styles.form}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlTextarea1"
