@@ -19,7 +19,7 @@ import SetOrder from './Pages/SetOrder/SetOrder';
 import IndividualOrder from './Pages/IndividualOrder/IndividualOrder';
 import SetOrderUser from './UserPages/SetOrderUser/SetOrderUser';
 import IndividualOrderUser from './UserPages/IndividualOrderUser/IndividualOrderUser';
-import IndividualTrayDetail from './components/IndividualTrayDetail/IndividualTrayDetail'
+import IndividualTrayDetail from './components/IndividualTrayDetail/IndividualTrayDetail';
 
 const App = () => {
   return (
@@ -70,7 +70,6 @@ const App = () => {
           exact
           element={<IndividualTrayDetail />}
         ></Route>
-
       </Routes>
     </BrowserRouter>
   );

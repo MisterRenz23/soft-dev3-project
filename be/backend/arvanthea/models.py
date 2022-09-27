@@ -77,10 +77,10 @@ class Payment(models.Model):
 
 
 class Feedback(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rslug = models.SlugField()
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # rslug = models.SlugField()
     feedback = models.TextField()
-    posted_on = models.DateField(default=timezone.now)
+    # posted_on = models.DateField(default=timezone.now)
 
     class Meta:
         verbose_name = 'Feedback'
