@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&display=swap");
+
+.page-container {
+  background-color: #f6f2ee;
+}
+
+.image-section {
+  width: 100%;
+  height: 437px;
+  background-image: url(/public/images/about-us-banner.png);
+  background-size: cover;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-containers {
+  text-align: center;
+  width: 716px;
+  height: 178px;
+}
+
+.title-text h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 97px;
+  color: #ffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.description-text p {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.divider {
+  width: 100%;
+  height: 42px;
+  background: rgba(102, 0, 45, 0.87);
+}
+
+.meet-the-team-text h1 {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  color: #66002d;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.picture-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.team-pictures {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 855px) {
+  .team-pictures {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-container {
+    background-color: #f6f2ee;
+    height: auto;
+  }
+
+  .title-text h1 {
+    font-size: 60px;
+  }
+
+  .description-text p {
+    font-size: 15px;
+  }
+}

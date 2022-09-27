@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap");
+
+.profile-container {
+  text-align: center;
+}
+
+.text-name,
+.text-position {
+  margin: 0;
+}
+
+.text-name {
+  font-family: "Public Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.text-position {
+  font-family: "Public Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+@media (max-width: 1155px) {
+  .profile-container img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 855px) {
+  .profile-container img {
+    width: auto;
+  }
+
+  .profile-container {
+    margin-right: 0px !important;
+    margin-bottom: 40px;
+  }
+}
