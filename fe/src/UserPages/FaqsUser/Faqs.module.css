@@ -1,0 +1,16 @@
+.pos {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.faqs-text {
+  color: #66002d;
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+.accordion {
+  width: 70%;
+}
