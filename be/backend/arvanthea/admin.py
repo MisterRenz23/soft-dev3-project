@@ -1,6 +1,6 @@
 from dataclasses import fields
 from django.contrib import admin
-from .models import User, Product, CartItems, Feedback
+from .models import Package, User, Product, CartItems, Feedback
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -13,6 +13,19 @@ class ProductAdmin(admin.ModelAdmin):
         ("Created By", {'fields': ["created_by"]}),
         ("Title", {'fields': ["title"]}),
         ("Image", {'fields': ["image"]}),
+        ("Description", {'fields': ["description"]}),
+        ("Price", {'fields': ["price"]}),
+        ("Pieces", {'fields': ["pieces"]}),
+        ("Slug", {'fields': ["slug"]}),
+    ]
+    list_display = ('id', 'created_by', 'title',
+                    'description', 'price')
+
+
+class PackageAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ("Created By", {'fields': ["created_by"]}),
+        ("Title", {'fields': ["title"]}),
         ("Description", {'fields': ["description"]}),
         ("Price", {'fields': ["price"]}),
         ("Pieces", {'fields': ["pieces"]}),
@@ -39,5 +52,6 @@ class CartItemsAdmin(admin.ModelAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Package, PackageAdmin)
 admin.site.register(CartItems, CartItemsAdmin)
 admin.site.register(Feedback)

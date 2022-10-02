@@ -6,3 +6,5 @@
 /fe/package.json
 /fe/node_modules
 /be/backend/arvanthea/migrations/__pycache__
+be/backend/arvanthea/migrations/__pycache__/0001_initial.cpython-310.pyc
+be/backend/arvanthea/migrations/__pycache__/__init__.cpython-310.pyc

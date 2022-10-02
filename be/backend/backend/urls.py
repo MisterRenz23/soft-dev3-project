@@ -18,25 +18,26 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from arvanthea.views import RegisterAPI, LoginAPI, UserDetailAPI, ProductView, ProductCreateView, ProductDeleteView, ProductUpdateView, FeedbackView
+from arvanthea.views import RegisterAPI, LoginAPI, UserDetailAPI, ProductView, ProductCreateView, ProductDeleteView, ProductUpdateView, FeedbackView, PackageView
 from rest_framework import routers
 
 route = routers.DefaultRouter()
-route.register("", ProductView, basename='productview')
+route.register("product_list", ProductView, basename='productview')
+route.register("package_list", PackageView, basename='packageview')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/register', RegisterAPI.as_view()),
     path('user/login', LoginAPI.as_view()),
     path('user/profile', UserDetailAPI.as_view()),
-    path('user/product_list/', include(route.urls)),
+    path('user/', include(route.urls)),
     path('user/product/new/', ProductCreateView.as_view(), name='product-create'),
     path('user/product-update/<slug>/',
          ProductUpdateView.as_view(), name='product-update'),
     path('user/product-delete/<slug>/',
          ProductDeleteView.as_view(), name='product-delete'),
-     path('user/feedback', FeedbackView.as_view({
-        'get' : 'list' , 'post' : 'create'
-        })),
+    path('user/feedback', FeedbackView.as_view({
+         'get': 'list', 'post': 'create'
+         })),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
