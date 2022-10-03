@@ -61,6 +61,38 @@ class Product(models.Model):
         })
 
 
+class Package(models.Model):
+    title = models.CharField(max_length=150)
+    description = models.CharField(max_length=250, blank=True)
+    price = models.DecimalField(decimal_places=2, max_digits=6)
+    pieces = models.IntegerField()
+    slug = models.SlugField(default="package")
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("main:dishes", kwargs={
+            'slug': self.slug
+        })
+
+    def get_add_to_cart_url(self):
+        return reverse("main:add-to-cart", kwargs={
+            'slug': self.slug
+        })
+
+    def get_item_delete_url(self):
+        return reverse("main:product-delete", kwargs={
+            'slug': self.slug
+        })
+
+    def get_update_item_url(self):
+        return reverse("main:product-update", kwargs={
+            'slug': self.slug
+        })
+
+
 class Order(models.Model):
     order = models.ForeignKey(Product, on_delete=models.CASCADE)
     username = models.CharField(max_length=50)

@@ -3,11 +3,11 @@ from django.contrib.auth import login
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework import generics, permissions
-from .serializers import RegisterSerializer, UserSerializer, LoginSerializer, ProductSerializer, FeedbackSerializer
+from .serializers import RegisterSerializer, UserSerializer, LoginSerializer, ProductSerializer, FeedbackSerializer, PackageSerializer
 from knox.models import AuthToken
 from rest_framework.authentication import TokenAuthentication
 from knox.views import LoginView as KnoxLoginView
-from .models import Product, User, Feedback
+from .models import Package, Product, User, Feedback
 from . import serializers
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (
@@ -133,7 +133,22 @@ class ProductView(viewsets.ModelViewSet):
     #     context.update({"request": self.request})
     #     return context
 
+
 class FeedbackView (viewsets.ModelViewSet):
     get_queryset = Feedback.objects.all
     serializer_class = FeedbackSerializer
-    
+
+
+class PackageView(viewsets.ModelViewSet):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.AllowAny,)
+    get_queryset = Package.objects.all
+    serializer_class = PackageSerializer
+
+    @login_required
+    def product_list(request):
+        packages = Package.objects.filter(created_by=request.user)
+        context = {
+            'package': packages
+        }
+        return render(request, context)

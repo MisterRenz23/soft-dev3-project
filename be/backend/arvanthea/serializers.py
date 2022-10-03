@@ -1,4 +1,4 @@
-from .models import Product, User, RegisteredUser, Feedback
+from .models import Package, Product, User, RegisteredUser, Feedback
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 
@@ -113,7 +113,15 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'image',
                   'description', 'price', 'pieces', 'slug']
 
+
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
         fields = ['feedback']
+
+
+class PackageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Package
+        fields = ['id', 'title',
+                  'description', 'price', 'pieces', 'slug']
