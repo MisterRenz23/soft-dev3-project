@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Image, Container, Row, Col } from 'react-bootstrap';
 import styles from './Footer.module.css';
 
-const Footer = () => {
+const PublicFooter = () => {
   return (
     <div className={styles.container}>
       <Container fluid>
@@ -12,19 +12,19 @@ const Footer = () => {
             <Image src="/images/address.png" alt="Address" />
           </Col>
           <Col className={styles['bottom-nav-size']}>
-            <Link to="/home-user" className={styles.link}>
+            <Link to="/" className={styles.link}>
               <h5 className={styles['bottom-nav']}>Home</h5>
             </Link>
-            <Link to="/about-user" className={styles.link}>
+            <Link to="/about" className={styles.link}>
               <h5 className={styles['bottom-nav']}>About Us</h5>
             </Link>
-            <Link to="services-user" className={styles.link}>
+            <Link to="services" className={styles.link}>
               <h5 className={styles['bottom-nav']}>Services</h5>
             </Link>
-            <Link to="/faqs-user" className={styles.link}>
+            <Link to="/faqsr" className={styles.link}>
               <h5 className={styles['bottom-nav']}>Faqs</h5>
             </Link>
-            <Link to="/feedback-user" className={styles.link}>
+            <Link to="/feedback" className={styles.link}>
               <h5 className={styles['bottom-nav']}>Feedback</h5>
             </Link>
           </Col>
@@ -40,4 +40,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default PublicFooter;

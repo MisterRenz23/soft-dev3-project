@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Container, Form } from 'react-bootstrap';
 import API from '../../API';
 import NavBarComponent from '../../components/NavBarComponent/NavBarComponent';
@@ -10,7 +9,6 @@ import FeedbackInt from './FeedbackInt';
 const Feedback = () => {
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState('');
-  let navigate = useNavigate();
 
   const FeedbackList = async (e) => {
     let formField = new FormData();
@@ -21,7 +19,7 @@ const Feedback = () => {
       method: 'post',
       url: '/user/feedback',
       data: formField,
-    }).then((response) => {
+    }).then(() => {
       window.location.reload();
     });
   };
@@ -41,33 +39,6 @@ const Feedback = () => {
         <div>
           <NavBarComponent />
           <Container fluid className={styles['exp-pos']}>
-            <Container fluid>
-              <h5 className={styles.exp}>HOW WAS YOUR EXPERIENCE?</h5>
-            </Container>
-            <Container fluid>
-              <h5 className={styles.common}>LEAVE US A REVIEW</h5>
-            </Container>
-            <Container fluid className={styles['text-area']}>
-              <Form className={styles.form}>
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlTextarea1"
-                >
-                  <Form.Control
-                    as="textarea"
-                    rows={3}
-                    name="feedback"
-                    value={feedback}
-                    onChange={(e) => setFeedback(e.target.value)}
-                  />
-                </Form.Group>
-              </Form>
-            </Container>
-            <Container fluid>
-              <button className={styles['submit-btn']} onClick={FeedbackList}>
-                Submit
-              </button>
-            </Container>
             <Container fluid>
               <Container fluid className={styles.box}>
                 <Container fluid>

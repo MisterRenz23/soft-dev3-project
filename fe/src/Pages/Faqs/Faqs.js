@@ -140,9 +140,6 @@ const Faqs = () => {
               </Container>
             </Container>
           </Container>
-          <div>
-            <Footer />
-          </div>
         </div>
       )}
     </div>
