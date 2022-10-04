@@ -12,7 +12,7 @@ import chopsuey from '../../assets/chopsuey.png';
 import fish from '../../assets/fish.png';
 import spag from '../../assets/spag.png';
 import cordonbleu from '../../assets/cordonbleu.png';
-import Footer from '../../components/footer/Footer.js';
+import PublicFooter from '../../components/footer/PublicFooter.js';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -111,7 +111,7 @@ const Home = () => {
             </Container>
           </Container>
           <div>
-            <Footer />
+            <PublicFooter />
           </div>
         </div>
       )}

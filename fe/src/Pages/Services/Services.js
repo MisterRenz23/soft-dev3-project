@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Services.module.css';
 import { Button } from 'react-bootstrap';
-import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom';
 import Splash from '../Splash/Splash';
 import NavBarComponent from '../../components/NavBarComponent/NavBarComponent';
@@ -80,7 +79,6 @@ const Services = () => {
               </div>
             </div>
           </div>
-          <Footer />
         </div>
       )}
     </div>
