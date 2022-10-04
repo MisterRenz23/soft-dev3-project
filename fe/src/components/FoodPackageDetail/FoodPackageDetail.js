@@ -9,19 +9,20 @@ import API from "../../API";
 import NavbarUser from "../NavbarUser/NavbarUser";
 
 const FoodPackageDetail = () => {
-  //   const [product, setProduct] = useState([]);
-  //   const { id } = useParams();
+  const [set, setPackage] = useState([]);
+  const { id } = useParams();
+
   const [count, setCount] = useState(0);
 
-  //   const getSingleProduct = async () => {
-  //     const { data } = await API.get(`/user/product_list/${id}/`);
-  //     console.log(data);
-  //     setProduct(data);
-  //   };
+  const getSinglePackage = async () => {
+    const { data } = await API.get(`/user/package_list/${id}/`);
+    console.log(data);
+    setPackage(data);
+  };
 
-  //   useEffect(() => {
-  //     getSingleProduct();
-  //   }, []);
+  useEffect(() => {
+    getSinglePackage();
+  }, []);
 
   return (
     <div className={styles["background"]}>
@@ -42,10 +43,9 @@ const FoodPackageDetail = () => {
           <div className={styles["product-text"]}>
             <div className={styles["name-price-inline"]}>
               <h1 className={styles["product-name"]}>
-                {/* {product.title} */}
-                Set A Menu
+                {set.title}
                 <span className={styles["product-price"]}>
-                  {/* ₱ {product.price} */}₱ 2900.00
+                  ₱ {set.price}
                 </span>
               </h1>
             </div>
@@ -54,8 +54,8 @@ const FoodPackageDetail = () => {
               Good for 10 - 15 persons
             </p>
             <p className={styles["product-description"]}>
-              {/* {product.description} */}
-              Breaded fish fillet, Bam-i, Fried Chicken, Lumpia Shanghai.
+              {set.description}
+
             </p>
             <p>For customization, messages us after you have check this out.</p>
             <div className={styles["counter"]}>

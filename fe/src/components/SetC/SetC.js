@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './SetC.module.css';
 import AuthModal from '../AuthModal/AuthModal';
+import API from '../../API';
 
 const SetC = () => {
+
+  const [set, setPackage] = useState([])
+
+
+  const getSinglePackage = async () => {
+    const { data } = await API.get(`/user/package_list/3/`)
+    console.log(data);
+    setPackage(data);
+  }
+
+  useEffect(() => {
+    getSinglePackage();
+  }, [])
+
   return (
     <Container fluid className={styles.box}>
       <Container fluid>
@@ -71,7 +86,11 @@ const SetC = () => {
           </Col>
         </Row>
         <Container fluid className={styles['button-container']}>
-          <AuthModal />
+          <Link to={`/services-user/set-order/set/${set.id}`}>
+            <button className={styles.button}>
+              INQUIRE NOW
+            </button>
+          </Link>
         </Container>
       </Container>
     </Container>
