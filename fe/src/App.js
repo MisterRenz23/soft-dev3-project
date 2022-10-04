@@ -22,6 +22,7 @@ import SetOrderUser from "./UserPages/SetOrderUser/SetOrderUser";
 import IndividualOrderUser from "./UserPages/IndividualOrderUser/IndividualOrderUser";
 import IndividualTrayDetail from "./components/IndividualTrayDetail/IndividualTrayDetail";
 import BagSummary from "./Pages/BagSummary/BagSummary";
+import FoodPackageDetail from "./components/FoodPackageDetail/FoodPackageDetail";
 
 
 const App = () => {
@@ -72,6 +73,11 @@ const App = () => {
           path="/services-user/individual-order/:id/"
           exact
           element={<IndividualTrayDetail />}
+        ></Route>
+        <Route
+          path="/services-user/set-order/set/:id/"
+          exact
+          element={<FoodPackageDetail />}
         ></Route>
       </Routes>
     </BrowserRouter>
