@@ -46,7 +46,7 @@ const App = () => {
         <Route path="/faqs-user" exact element={<FaqsUser />}></Route>
         <Route path="/feedback" exact element={<Feedback />}></Route>
         <Route path="/feedback-user" exact element={<FeedbackUser />}></Route>
-        <Route path="/profile" exact element={<Profile />}></Route>
+        <Route path="/profile/:id/" exact element={<Profile />}></Route>
         <Route path="/order-summary" exact element={<BagSummary />}></Route>
         <Route
           path="/profile/edit-profile"

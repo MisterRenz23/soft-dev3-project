@@ -64,7 +64,7 @@ const NavbarUser = () => {
                 id={`dropdown-button-drop-${direction}`}
                 drop={direction}
               >
-                <NavDropdown.Item href="/profile">
+                <NavDropdown.Item href="/profile/:id/">
                   <CgProfile className={styles["nav-icons"]} />
                   Profile
                 </NavDropdown.Item>

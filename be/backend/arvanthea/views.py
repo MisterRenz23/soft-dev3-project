@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import generics, permissions
 from .serializers import RegisterSerializer, UserSerializer, LoginSerializer, ProductSerializer, FeedbackSerializer, PackageSerializer
 from knox.models import AuthToken
-from rest_framework.authentication import TokenAuthentication
+from knox.auth import TokenAuthentication
 from knox.views import LoginView as KnoxLoginView
 from .models import Package, Product, User, Feedback
 from . import serializers
@@ -14,25 +14,18 @@ from django.views.generic import (
     DeleteView
 )
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 # Create your views here.
 
-class UserDetailAPI(APIView):
+class UserDetailAPI(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (AllowAny,)
-
-    def get(self, request, format=None):
-        user = self.request.user
-        username = user.username
-
-        user_profile = User.objects.get(user=id)
-        user_profile = UserSerializer(user_profile)
-
-        return Response({'profile': user_profile.data, 'username': str(username)})
+    permission_classes = (IsAuthenticated,)
+    get_queryset = User.objects.all
+    serializer_class = UserSerializer
 
 
 class RegisterAPI(generics.GenericAPIView):
@@ -69,8 +62,14 @@ class LoginAPI(KnoxLoginView):
                                                  context={'request': self.request})
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
+        data_user = User.objects.filter(
+            id=user.id).values('id', 'username', 'first_name', 'last_name', 'address', 'contact_number', 'email', 'birth_date')
         login(request, user)
-        return super(LoginAPI, self).post(request, format=None)
+        # temp_list = super(LoginAPI, self).post(request, format=None)
+        # # temp_list.data["user_data"] = data_fields
+        # # return super(LoginAPI, self).post(request, format=None)
+        return Response({"user": data_user,
+                         "token": AuthToken.objects.create(user)[1]})
 
 
 class ProductCreateView(LoginRequiredMixin, APIView):
@@ -120,7 +119,7 @@ class ProductView(viewsets.ModelViewSet):
     get_queryset = Product.objects.all
     serializer_class = ProductSerializer
 
-    @login_required
+    @ login_required
     def product_list(request):
         products = Product.objects.filter(created_by=request.user)
         context = {
@@ -145,7 +144,7 @@ class PackageView(viewsets.ModelViewSet):
     get_queryset = Package.objects.all
     serializer_class = PackageSerializer
 
-    @login_required
+    @ login_required
     def product_list(request):
         packages = Package.objects.filter(created_by=request.user)
         context = {

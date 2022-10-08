@@ -20,8 +20,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from arvanthea.views import RegisterAPI, LoginAPI, UserDetailAPI, ProductView, ProductCreateView, ProductDeleteView, ProductUpdateView, FeedbackView, PackageView
 from rest_framework import routers
+from knox import views as knox_views
 
 route = routers.DefaultRouter()
+route.register("profile", UserDetailAPI, basename='profileview')
 route.register("product_list", ProductView, basename='productview')
 route.register("package_list", PackageView, basename='packageview')
 
@@ -29,7 +31,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/register', RegisterAPI.as_view()),
     path('user/login', LoginAPI.as_view()),
-    path('user/profile', UserDetailAPI.as_view()),
+    path('user/logout', knox_views.LogoutView.as_view(), name='logout'),
+    path('user/logoutall', knox_views.LogoutAllView.as_view(), name='logoutall'),
     path('user/', include(route.urls)),
     path('user/product/new/', ProductCreateView.as_view(), name='product-create'),
     path('user/product-update/<slug>/',

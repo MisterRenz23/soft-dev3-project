@@ -1,19 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Splash from '../../Pages/Splash/Splash.js';
 import NavbarUser from '../../components/NavbarUser/NavbarUser.js';
 import { Container, Image } from 'react-bootstrap';
 import styles from './Profile.module.css';
+import API from '../../API.js';
 
 const Profile = () => {
-  const [loading, setLoading] = useState(false);
+  // const user = JSON.parse(localStorage.getItem('user_data'));
 
+  const [loading, setLoading] = useState(false);
+  const [user, setProfile] = JSON.parse(localStorage.getItem('user_data'));
+  const { id } = useParams();
+
+
+  const getProfile = async () => {
+
+
+    const { data } = await API.get(`/user/profile/`, {
+      headers: {
+        Authorization: `Token ${localStorage.getItem('token')}`
+      }
+    })
+
+    console.log(data);
+    setProfile(data);
+  }
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+    getProfile();
+    // setLoading(true);
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 500);
+  }, [user]);
 
   return (
     <div>
@@ -35,7 +54,7 @@ const Profile = () => {
                 />
               </Container>
               <Container fluid className={styles['name-pos']}>
-                <h5 className={styles['profile-name']}>Krishna Tamosa</h5>
+                <h5 className={styles['profile-name']}> {user.first_name} {user.last_name}</h5>
               </Container>
               <Container fluid className={styles['btn-pos']}>
                 <Link to="/profile/edit-profile" className={styles['link-btn']}>
@@ -48,7 +67,7 @@ const Profile = () => {
                     <h5>Username</h5>
                   </div>
                   <Container className={styles['form-container']}>
-                    <h5 className={styles['form-text']}>Koorezna</h5>
+                    <h5 className={styles['form-text']}>{user.username}</h5>
                   </Container>
                 </Container>
               </Container>
@@ -59,7 +78,7 @@ const Profile = () => {
                   </div>
                   <Container className={styles['form-container']}>
                     <h5 className={styles['form-text']}>
-                      449 Filipa Bldg., Katipunan Street, Labangon, Cebu City
+                      {user.address}
                     </h5>
                   </Container>
                 </Container>
@@ -70,7 +89,7 @@ const Profile = () => {
                     <h5>Contact Number</h5>
                   </div>
                   <Container className={styles['form-container']}>
-                    <h5 className={styles['form-text']}>092114456356</h5>
+                    <h5 className={styles['form-text']}>{user.contact_number}</h5>
                   </Container>
                 </Container>
               </Container>
@@ -81,7 +100,7 @@ const Profile = () => {
                   </div>
                   <Container className={styles['form-container']}>
                     <h5 className={styles['form-text']}>
-                      krshnacarla@gmail.com
+                      {user.email}
                     </h5>
                   </Container>
                 </Container>
@@ -92,7 +111,7 @@ const Profile = () => {
                     <h5>Birthdate</h5>
                   </div>
                   <Container className={styles['form-container']}>
-                    <h5 className={styles['form-text']}>June 27, 2004</h5>
+                    <h5 className={styles['form-text']}> {user.birth_date}</h5>
                   </Container>
                 </Container>
               </Container>

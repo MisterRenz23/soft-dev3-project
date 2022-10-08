@@ -27,8 +27,10 @@ const useForm = (validate) => {
 
     API.post('/user/login', valuesFormData)
       .then((response) => {
-        localStorage.setItem('token', `knox ${response.data.token}`);
-        API.defaults.headers.Authorization = `knox ${response.data.token}`;
+        localStorage.setItem('token', `${response.data.token}`);
+        localStorage.setItem('user_data', JSON.stringify(response.data.user));
+        API.defaults.headers.Authorization = `${response.data.token}`;
+
         console.log(response.data.token);
         // window.location.reload();
         navigate('/home-user');
