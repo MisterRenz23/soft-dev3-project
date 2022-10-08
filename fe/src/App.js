@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -23,7 +22,7 @@ import IndividualOrderUser from "./UserPages/IndividualOrderUser/IndividualOrder
 import IndividualTrayDetail from "./components/IndividualTrayDetail/IndividualTrayDetail";
 import BagSummary from "./Pages/BagSummary/BagSummary";
 import FoodPackageDetail from "./components/FoodPackageDetail/FoodPackageDetail";
-
+import OrderConfirmationUser from "./UserPages/OrderConfirmationUser/OrderConfirmationUser";
 
 const App = () => {
   return (
@@ -78,6 +77,13 @@ const App = () => {
           path="/services-user/set-order/set/:id/"
           exact
           element={<FoodPackageDetail />}
+          c
+        ></Route>
+        <Route
+          path="/services-user/order-confirmation"
+          exact
+          element={<OrderConfirmationUser />}
+          c
         ></Route>
       </Routes>
     </BrowserRouter>
