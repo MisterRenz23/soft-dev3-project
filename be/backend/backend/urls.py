@@ -29,6 +29,7 @@ route.register("package_list", PackageView, basename='packageview')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include('drf_social_oauth2.urls', namespace='drf')),
     path('user/register', RegisterAPI.as_view()),
     path('user/login', LoginAPI.as_view()),
     path('user/logout', knox_views.LogoutView.as_view(), name='logout'),

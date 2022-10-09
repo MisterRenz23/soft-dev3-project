@@ -17,7 +17,7 @@ const Profile = () => {
   const getProfile = async () => {
 
 
-    const { data } = await API.get(`/user/profile/`, {
+    const { data } = await API.get(`/user/profile/${user.id}/`, {
       headers: {
         Authorization: `Token ${localStorage.getItem('token')}`
       }

@@ -5,6 +5,7 @@ import styles from "./Login.module.css";
 import useForm from "./useForm";
 import validate from "./validateLogin";
 import NavbarLogin from "../../components/NavbarLogin/NavbarLogin";
+import Google from "./googleLogin";
 
 const Login = () => {
   const { handleChange, clickLogin, values, errors } = useForm(validate);
@@ -77,13 +78,7 @@ const Login = () => {
                 </div>
               </div>
               <div className={styles["button-container"]}>
-                <Button
-                  className={styles["button-sign-in-google"]}
-                  variant="primary"
-                  type="submit"
-                >
-                  Sign in with Google
-                </Button>
+                <Google />
               </div>
               <div className={styles["button-container"]}>
                 <Button
