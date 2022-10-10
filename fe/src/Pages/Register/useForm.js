@@ -1,19 +1,19 @@
-import { useState } from "react";
-import API from "../../API";
+import { useState } from 'react';
+import API from '../../API';
 
 const useForm = (validate) => {
   const [values, setValues] = useState({
-    username: "",
-    first_name: "",
-    middle_name: "",
-    last_name: "",
-    address: "",
+    username: '',
+    first_name: '',
+    middle_name: '',
+    last_name: '',
+    address: '',
     birth_date: new Date(),
-    contact_number: "",
-    sex: "",
-    email: "",
-    password: "",
-    confirm_password: "",
+    contact_number: '',
+    sex: '',
+    email: '',
+    password: '',
+    confirm_password: '',
   });
   const [errors, setErrors] = useState({});
   const [registerSuccess, setRegisterSuccess] = useState(false);
@@ -36,15 +36,15 @@ const useForm = (validate) => {
       address: values.address,
       contact_number: values.contact_number,
       birth_date: values.startDate
-        ? values.startDate.toLocaleDateString("en-CA")
-        : "",
+        ? values.startDate.toLocaleDateString('en-CA')
+        : '',
       sex: values.sex,
       email: values.email,
       password: values.password,
       confirm_password: values.confirm_password,
     };
 
-    API.post("/user/register", valuesFormData)
+    API.post('/user/register', valuesFormData)
       .then((response) => {
         setRegisterSuccess(true);
       })

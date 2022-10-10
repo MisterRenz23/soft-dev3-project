@@ -19,8 +19,6 @@ from rest_framework.views import APIView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
-# Create your views here.
-
 class UserDetailAPI(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -63,11 +61,8 @@ class LoginAPI(KnoxLoginView):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         data_user = User.objects.filter(
-            id=user.id).values('id', 'username', 'first_name', 'last_name', 'address', 'contact_number', 'email', 'birth_date')
+            id=user.id).values('id', 'username', 'first_name', 'middle_name','last_name', 'address', 'contact_number', 'email', 'birth_date')
         login(request, user)
-        # temp_list = super(LoginAPI, self).post(request, format=None)
-        # # temp_list.data["user_data"] = data_fields
-        # # return super(LoginAPI, self).post(request, format=None)
         return Response({"user": data_user,
                          "token": AuthToken.objects.create(user)[1]})
 
@@ -126,12 +121,6 @@ class ProductView(viewsets.ModelViewSet):
             'products': products
         }
         return render(request, context)
-
-    # def get_serializer_context(self):
-    #     context = super(ProductView, self).get_serializer_context()
-    #     context.update({"request": self.request})
-    #     return context
-
 
 class FeedbackView (viewsets.ModelViewSet):
     get_queryset = Feedback.objects.all

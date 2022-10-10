@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import styles from './Set.module.css';
-import AuthModal from '../AuthModal/AuthModal';
 import API from '../../API';
 
 const Set = () => {
-
-  const [set, setPackage] = useState([])
-
+  const [set, setPackage] = useState([]);
 
   const getSinglePackage = async () => {
-    const { data } = await API.get(`/user/package_list/1/`)
+    const { data } = await API.get(`/user/package_list/1/`);
     console.log(data);
     setPackage(data);
-  }
+  };
 
   useEffect(() => {
     getSinglePackage();
-  }, [])
+  }, []);
 
   return (
     <Container fluid className={styles.box}>
@@ -55,10 +52,10 @@ const Set = () => {
             <Container fluid>
               <h5> Note:</h5>
               <p className={styles.paragraph}>
-                Desserts are also available in{' '}
+                Desserts are also available in
                 <Link to="/services-user/individual-order">
                   Individual Order
-                </Link>{' '}
+                </Link>
                 (add ₱ 500 each, good for 10-15 persons)
               </p>
             </Container>
@@ -82,9 +79,7 @@ const Set = () => {
         </Row>
         <Container fluid className={styles['button-container']}>
           <Link to={`/services-user/set-order/set/${set.id}`}>
-            <button className={styles.button}>
-              INQUIRE NOW
-            </button>
+            <button className={styles.button}>INQUIRE NOW</button>
           </Link>
         </Container>
       </Container>

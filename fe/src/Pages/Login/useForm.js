@@ -30,9 +30,6 @@ const useForm = (validate) => {
         localStorage.setItem('token', `${response.data.token}`);
         localStorage.setItem('user_data', JSON.stringify(response.data.user));
         API.defaults.headers.Authorization = `${response.data.token}`;
-
-        console.log(response.data.token);
-        // window.location.reload();
         navigate('/home-user');
       })
       .catch((error) => {

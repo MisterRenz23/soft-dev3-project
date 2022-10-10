@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Accordion } from 'react-bootstrap';
 import NavBarComponent from '../../components/NavBarComponent/NavBarComponent';
-import Footer from '../../components/footer/Footer';
 import styles from './Faqs.module.css';
 import Splash from '../Splash/Splash';
 import './Faqs.css';
