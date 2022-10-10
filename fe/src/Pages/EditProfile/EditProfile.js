@@ -1,151 +1,221 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import API from '../../API';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import styles from './EditProfile.module.css';
 import NavbarUser from '../../components/NavbarUser/NavbarUser';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 const EditProfile = () => {
-
   const { id } = useParams();
   const navigate = useNavigate();
-  const [firstname, setfirstName] = useState("")
-  const [lastname, setlastName] = useState("")
-  const [username, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
-  const [phone, setPhone] = useState("")
-
-
-
-
-
-  // load students by its is and show data to forms by value
+  const [firstname, setfirstName] = useState('');
+  const [middlename, setmiddleName] = useState('');
+  const [lastname, setlastName] = useState('');
+  const [username, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
 
   let loadStudents = async () => {
     const result = await API.get(`user/profile/${id}/`, {
       headers: {
-        Authorization: `Token ${localStorage.getItem('token')}`
-      }
-    })
+        Authorization: `Token ${localStorage.getItem('token')}`,
+      },
+    });
 
     setlastName(result.data.last_name);
     setfirstName(result.data.first_name);
+    setmiddleName(result.data.middle_name);
     setName(result.data.username);
     setEmail(result.data.email);
     setPhone(result.data.contact_number);
     setAddress(result.data.address);
-  }
-
-
-  // Update s single student by id
+  };
 
   const updateSingleStudent = async () => {
-    let formField = new FormData()
+    let formField = new FormData();
 
-    formField.append('first_name', firstname)
-    formField.append('last_name', lastname)
-    formField.append('username', username)
-    formField.append('email', email)
-    formField.append('address', address)
-    formField.append('contact_number', phone)
+    formField.append('first_name', firstname);
+    formField.append('middle_name', middlename);
+    formField.append('last_name', lastname);
+    formField.append('username', username);
+    formField.append('email', email);
+    formField.append('address', address);
+    formField.append('contact_number', phone);
 
     await API({
       method: 'PUT',
       url: `user/profile/${id}/`,
       headers: {
-        Authorization: `Token ${localStorage.getItem('token')}`
+        Authorization: `Token ${localStorage.getItem('token')}`,
       },
-      data: formField
-    }).then(response => {
-      console.log(response.data);
-
+      data: formField,
+    }).then(() => {
       navigate(`/user-profile/${id}`);
-    })
-
-  }
+    });
+  };
 
   useEffect(() => {
     loadStudents();
-  }, [])
+  }, []);
+
+  const nav = () => {
+    navigate('/profile/:id');
+  };
 
   return (
+    <div>
+      <div className={styles['page-container']}>
+        <NavbarUser />
+        <Container fluid className={styles['box-container']}>
+          <div className={styles.box}>
+            <div className={styles['box-size']}>
+              <Container fluid className={styles['edit-pos']}>
+                <h5 className={styles.edit}>Edit Profile</h5>
+              </Container>
+              <Form>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>First Name</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="text"
+                        placeholder="First Name"
+                        value={firstname}
+                        onChange={(e) => setfirstName(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>Middle Name</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Middle Name"
+                        value={middlename}
+                        onChange={(e) => setmiddleName(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>Last Name</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Last Name"
+                        name="last_name"
+                        value={lastname}
+                        onChange={(e) => setlastName(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>Username</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        value={username}
+                        onChange={(e) => setName(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>Email</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>Username</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Your Phone Number"
+                        name="contact_number"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+                <Form.Group className={styles['form-pos']}>
+                  <Row className={styles.row}>
+                    <Col className={styles.col} xs={4}>
+                      <Form.Label>Address</Form.Label>
+                    </Col>
+                    <Col className={styles.col} xs={8}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Address"
+                        name="address"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        className={styles['form-container']}
+                      />
+                    </Col>
+                  </Row>
+                </Form.Group>
+              </Form>
+              <Container fluid className={styles['btn-pos']}>
+                <Button
+                  className={styles['btn-size']}
+                  variant="primary"
+                  onClick={updateSingleStudent}
+                >
+                  Save
+                </Button>
 
-    <div className="container">
-      <NavbarUser />
-      <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit Profile</h2>
-
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="First Name"
-            name="first_name"
-            value={firstname}
-            onChange={(e) => setfirstName(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Last Name"
-            name="last_name"
-            value={lastname}
-            onChange={(e) => setlastName(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Username"
-            name="username"
-            value={username}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
-          <input
-            type="email"
-            className="form-control form-control-lg"
-            placeholder="Enter Your E-mail Address"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Enter Your Phone Number"
-            name="contact_number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Enter Your address Name"
-            name="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </div>
-        <button onClick={updateSingleStudent} className="btn btn-primary btn-block">Save</button>
-
+                <Button
+                  className={styles['btn-size']}
+                  variant="secondary"
+                  onClick={nav}
+                >
+                  Cancel
+                </Button>
+              </Container>
+            </div>
+          </div>
+        </Container>
       </div>
     </div>
-
   );
 };
-
-
 
 export default EditProfile;
