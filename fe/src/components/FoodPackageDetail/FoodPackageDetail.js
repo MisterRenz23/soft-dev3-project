@@ -1,22 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import styles from './FoodPackageDetail.module.css';
-import { VscAdd } from 'react-icons/vsc';
-import { VscChromeMinimize } from 'react-icons/vsc';
-import { Button } from 'react-bootstrap';
-import API from '../../API';
-import NavbarUser from '../NavbarUser/NavbarUser';
+
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import styles from "./FoodPackageDetail.module.css";
+import { VscAdd } from "react-icons/vsc";
+import { VscChromeMinimize } from "react-icons/vsc";
+import { Button } from "react-bootstrap";
+import { FiArrowLeft } from "react-icons/fi";
+import API from "../../API";
+import NavbarUser from "../NavbarUser/NavbarUser";
+import { set, ref } from "firebase/database";
+import { db } from "../FireBase/firebase";
+
 
 const FoodPackageDetail = () => {
-  const [set, setPackage] = useState([]);
+  const [user, setProfile] = JSON.parse(localStorage.getItem("user_data"));
+  const [sets, setPackages] = useState([]);
   const { id } = useParams();
 
   const [count, setCount] = useState(0);
 
+  const writeToDatabase = () => {
+    set(ref(db, `/Cart/${user.username}/S${id}`), {
+      ProductName: [sets.title],
+      ProductPrice: [sets.price],
+      ProductQuantity: [count],
+    });
+  };
+
   const getSinglePackage = async () => {
     const { data } = await API.get(`/user/package_list/${id}/`);
     console.log(data);
-    setPackage(data);
+    setPackages(data);
   };
 
   useEffect(() => {
@@ -38,18 +52,22 @@ const FoodPackageDetail = () => {
               alt="Product"
             />
           </div>
-          <div className={styles['product-text']}>
-            <div className={styles['name-price-inline']}>
-              <h1 className={styles['product-name']}>
-                {set.title}
-                <span className={styles['product-price']}>₱ {set.price}</span>
+
+          <div className={styles["product-text"]}>
+            <div className={styles["name-price-inline"]}>
+              <h1 className={styles["product-name"]}>
+                {sets.title}
+                <span className={styles["product-price"]}>₱ {sets.price}</span>
+
               </h1>
             </div>
 
             <p className={styles['product-serving']}>
               Good for 10 - 15 persons
             </p>
-            <p className={styles['product-description']}>{set.description}</p>
+
+            <p className={styles["product-description"]}>{set.description}</p>
+
             <p>For customization, messages us after you have check this out.</p>
             <div className={styles['counter']}>
               <button
@@ -67,7 +85,15 @@ const FoodPackageDetail = () => {
                 <VscAdd className={styles['icon-add']} />
               </button>
 
-              <Button className={styles['button-add-order']}>Add To Bag</Button>
+              <Link to="/order-summary">
+                <Button
+                  onClick={writeToDatabase}
+                  className={styles["button-add-order"]}
+                >
+                  Add To Bag
+                </Button>
+              </Link>
+
             </div>
           </div>
         </div>

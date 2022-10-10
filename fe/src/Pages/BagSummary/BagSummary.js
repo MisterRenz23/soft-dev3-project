@@ -1,10 +1,40 @@
-import React from 'react';
-import AddedProducts from '../../components/AddedProductsToCart/AddedProductsToCart';
-import NavbarUser from '../../components/NavbarUser/NavbarUser.js';
-import styles from './BagSummary.module.css';
-import { Button } from 'react-bootstrap';
+
+import React, { useEffect, useState } from "react";
+import AddedProducts from "../../components/AddedProductsToCart/AddedProductsToCart";
+import NavbarUser from "../../components/NavbarUser/NavbarUser.js";
+import { Link, useParams } from "react-router-dom";
+import styles from "./BagSummary.module.css";
+import { Button } from "react-bootstrap";
+import { RealtimeData } from "./RealTimeData";
+import { set, ref } from "firebase/database";
+import { db } from "../../components/FireBase/firebase";
+import firebase from "firebase/compat/app";
+
 
 const BagSummary = () => {
+  const [user, setProfile] = JSON.parse(localStorage.getItem("user_data"));
+  function handleSubmit() {
+    var random_string = "";
+    var showdate = new Date();
+    var displaydate =
+      showdate.getDate() +
+      "/" +
+      showdate.getMonth() +
+      "/" +
+      showdate.getFullYear();
+    var characters = "135679";
+    for (var i, i = 0; i < characters.length; i++) {
+      random_string += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+
+    set(ref(db, `/SentOrders/${random_string}`), {
+      OrderNo: random_string,
+      DateOrdered: displaydate,
+      ConfirmStatus: "Pending",
+    });
+  }
   return (
     <div className={styles['page-container']}>
       <NavbarUser />
@@ -13,23 +43,27 @@ const BagSummary = () => {
       </h1>
       <div className={styles['content']}>
         <div>
-          <div className={styles['box-summary']}>
-            <h2 className={styles['title-order']}>Order Summary</h2>
-            <div className={styles['horizontal-line']}></div>
-            <div className={styles['cart-products']}>
-              <AddedProducts ProductImage="chicken.png" />
-              <AddedProducts ProductImage="chicken.png" />
-              <AddedProducts ProductImage="chicken.png" />
-              <AddedProducts ProductImage="chicken.png" />
+
+          <div className={styles["box-summary"]}>
+            <h2 className={styles["title-order"]}>Order Summary</h2>
+            <div className={styles["horizontal-line"]}></div>
+            <div className={styles["cart-products"]}>
+              <RealtimeData />
             </div>
-            <div className={styles['horizontal-line-total']}></div>
-            <div className={styles['inline']}>
-              <h3 className={styles['total-text']}>Total</h3>
-              <h3 className={styles['total-product-price']}>₱ 75000.00</h3>
+
+            <div className={styles["inline"]}>
+              <h3 className={styles["total-text"]}></h3>
+              <h3 className={styles["total-product-price"]}></h3>
             </div>
-            <Button className={styles['checkout-button']}>
-              Proceed to Checkout
-            </Button>
+            <Link to="/services-user/order-confirmation">
+              <Button
+                onClick={handleSubmit}
+                className={styles["checkout-button"]}
+              >
+                Proceed to Checkout
+              </Button>
+            </Link>
+
           </div>
         </div>
 

@@ -9,9 +9,8 @@ import { CgProfile } from 'react-icons/cg';
 import { BiLogOut } from 'react-icons/bi';
 
 const NavbarUser = () => {
-  const handleClick = () => {
-    localStorage.clear();
-  };
+
+
   return (
     <Navbar
       className={styles['nav-container']}
@@ -71,8 +70,10 @@ const NavbarUser = () => {
                   <CgProfile className={styles['nav-icons']} />
                   Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/login" onClick={handleClick}>
-                  <BiLogOut className={styles['nav-icons']} />
+
+                <NavDropdown.Item href="/login">
+                  <BiLogOut className={styles["nav-icons"]} />
+
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
