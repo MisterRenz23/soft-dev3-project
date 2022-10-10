@@ -37,12 +37,10 @@ const Services = () => {
               <div className={styles['box-text-container']}>
                 <h1 className={styles['box-1-h1-text']}>FOOD PACKAGE</h1>
                 <p className={styles['box-1-p-text']}>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting.
+                  In this section, you'll see the different packages that Arvanthea offers to its customers.
+                  With every set of packages that can be customized to your own
+                  preference as long as it has the same reasonable price as the
+                  food that's been replaced. For further inquiries kindly message the owner in the contacts provided.
                 </p>
                 <Link to="/services/set-order">
                   <Button
@@ -60,12 +58,8 @@ const Services = () => {
               <div className={styles['box-text-container']}>
                 <h1 className={styles['box-1-h1-text']}>INDIVIDUAL TRAYS</h1>
                 <p className={styles['box-1-p-text']}>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting.
+                  In this section, you can order individual food trays that you want to be served in the comfort of your home. Arvanthea assures that the food you order will always be fresh and delicious as it is made with a mother's love and care.
+                  You'll enjoy eating the food for its reasonable price and flavorsome taste.
                 </p>
                 <Link to="/services/individual-order">
                   <Button
