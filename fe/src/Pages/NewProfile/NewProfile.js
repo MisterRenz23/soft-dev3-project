@@ -1,36 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Splash from '../../Pages/Splash/Splash.js';
+import Splash from '../Splash/Splash.js';
 import NavbarUser from '../../components/NavbarUser/NavbarUser.js';
 import { Container, Image } from 'react-bootstrap';
 import styles from './Profile.module.css';
 import API from '../../API.js';
 
-const Profile = () => {
+const NewProfile = () => {
   // const user = JSON.parse(localStorage.getItem('user_data'));
 
   const [loading, setLoading] = useState(false);
-  const [user, setProfile] = JSON.parse(localStorage.getItem('user_data'));
+  const [user, setProfile] = useState([])
   const { id } = useParams();
-
 
   const getProfile = async () => {
 
 
-    const { data } = await API.get(`/user/profile/${user.id}/`, {
+    const { data } = await API.get(`/user/profile/${id}/`, {
       headers: {
         Authorization: `Token ${localStorage.getItem('token')}`
-      }
+      },
+
+
     })
 
-
+    console.log(data);
+    setProfile(data);
   }
   useEffect(() => {
     getProfile();
-    // setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 500);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   }, []);
 
   return (
@@ -122,4 +124,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default NewProfile;
