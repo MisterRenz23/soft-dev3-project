@@ -23,6 +23,7 @@ import IndividualTrayDetail from "./components/IndividualTrayDetail/IndividualTr
 import BagSummary from "./Pages/BagSummary/BagSummary";
 import FoodPackageDetail from "./components/FoodPackageDetail/FoodPackageDetail";
 import OrderConfirmationUser from "./UserPages/OrderConfirmationUser/OrderConfirmationUser";
+import NewProfile from "./Pages/NewProfile/NewProfile";
 
 const App = () => {
   return (
@@ -47,8 +48,9 @@ const App = () => {
         <Route path="/feedback-user" exact element={<FeedbackUser />}></Route>
         <Route path="/profile/:id/" exact element={<Profile />}></Route>
         <Route path="/order-summary" exact element={<BagSummary />}></Route>
+        <Route path="/user-profile/:id" exact element={<NewProfile />}></Route>
         <Route
-          path="/profile/edit-profile"
+          path="/profile/edit-profile/:id"
           exact
           element={<EditProfile />}
         ></Route>
