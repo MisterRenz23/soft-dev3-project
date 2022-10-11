@@ -24,6 +24,7 @@ import BagSummary from "./Pages/BagSummary/BagSummary";
 import FoodPackageDetail from "./components/FoodPackageDetail/FoodPackageDetail";
 import OrderConfirmationUser from "./UserPages/OrderConfirmationUser/OrderConfirmationUser";
 import NewProfile from "./Pages/NewProfile/NewProfile";
+import Admin from "./Pages/Admin/Admin";
 
 const App = () => {
   return (
@@ -87,6 +88,7 @@ const App = () => {
           element={<OrderConfirmationUser />}
           c
         ></Route>
+        <Route path="/administrator" exact element={<Admin />} c></Route>
       </Routes>
     </BrowserRouter>
   );
