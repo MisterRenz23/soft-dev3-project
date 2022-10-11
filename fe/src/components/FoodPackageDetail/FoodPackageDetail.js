@@ -1,19 +1,16 @@
-
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import styles from "./FoodPackageDetail.module.css";
-import { VscAdd } from "react-icons/vsc";
-import { VscChromeMinimize } from "react-icons/vsc";
-import { Button } from "react-bootstrap";
-import { FiArrowLeft } from "react-icons/fi";
-import API from "../../API";
-import NavbarUser from "../NavbarUser/NavbarUser";
-import { set, ref } from "firebase/database";
-import { db } from "../FireBase/firebase";
-
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import styles from './FoodPackageDetail.module.css';
+import { VscAdd } from 'react-icons/vsc';
+import { VscChromeMinimize } from 'react-icons/vsc';
+import { Button } from 'react-bootstrap';
+import API from '../../API';
+import NavbarUser from '../NavbarUser/NavbarUser';
+import { set, ref } from 'firebase/database';
+import { db } from '../FireBase/firebase';
 
 const FoodPackageDetail = () => {
-  const [user, setProfile] = JSON.parse(localStorage.getItem("user_data"));
+  const [user, setProfile] = JSON.parse(localStorage.getItem('user_data'));
   const [sets, setPackages] = useState([]);
   const { id } = useParams();
 
@@ -29,7 +26,7 @@ const FoodPackageDetail = () => {
 
   const getSinglePackage = async () => {
     const { data } = await API.get(`/user/package_list/${id}/`);
-    console.log(data);
+
     setPackages(data);
   };
 
@@ -53,12 +50,11 @@ const FoodPackageDetail = () => {
             />
           </div>
 
-          <div className={styles["product-text"]}>
-            <div className={styles["name-price-inline"]}>
-              <h1 className={styles["product-name"]}>
+          <div className={styles['product-text']}>
+            <div className={styles['name-price-inline']}>
+              <h1 className={styles['product-name']}>
                 {sets.title}
-                <span className={styles["product-price"]}>₱ {sets.price}</span>
-
+                <span className={styles['product-price']}>₱ {sets.price}</span>
               </h1>
             </div>
 
@@ -66,7 +62,7 @@ const FoodPackageDetail = () => {
               Good for 10 - 15 persons
             </p>
 
-            <p className={styles["product-description"]}>{set.description}</p>
+            <p className={styles['product-description']}>{set.description}</p>
 
             <p>For customization, messages us after you have check this out.</p>
             <div className={styles['counter']}>
@@ -88,12 +84,11 @@ const FoodPackageDetail = () => {
               <Link to="/order-summary">
                 <Button
                   onClick={writeToDatabase}
-                  className={styles["button-add-order"]}
+                  className={styles['button-add-order']}
                 >
                   Add To Bag
                 </Button>
               </Link>
-
             </div>
           </div>
         </div>

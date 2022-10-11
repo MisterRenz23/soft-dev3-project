@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -26,17 +27,13 @@ import OrderConfirmationUser from "./UserPages/OrderConfirmationUser/OrderConfir
 import NewProfile from "./Pages/NewProfile/NewProfile";
 import Admin from "./Pages/Admin/Admin";
 
+
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" exact element={<Login />}></Route>
         <Route path="/register" exact element={<Register />}></Route>
-        <Route
-          path="/register-success"
-          exact
-          element={<RegisterSuccess />}
-        ></Route>
         <Route path="/" exact element={<Home />}></Route>
         <Route path="/home-user" exact element={<HomeUser />}></Route>
         <Route path="/about" exact element={<About />}></Route>
