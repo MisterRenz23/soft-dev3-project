@@ -161,7 +161,7 @@ const EditProfile = () => {
                 <Form.Group className={styles['form-pos']}>
                   <Row className={styles.row}>
                     <Col className={styles.col} xs={4}>
-                      <Form.Label>Username</Form.Label>
+                      <Form.Label>Contact Number</Form.Label>
                     </Col>
                     <Col className={styles.col} xs={8}>
                       <Form.Control

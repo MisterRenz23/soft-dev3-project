@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import StartFirebase from "../../components/FireBase/firebaseRealTimeData";
-import { ref, onValue, remove } from "firebase/database";
-import { Table } from "react-bootstrap";
-import styles from "./Admin.module.css";
+import React, { useState } from 'react';
+import StartFirebase from '../../components/FireBase/firebaseRealTimeData';
+import { ref, onValue, remove } from 'firebase/database';
+import { Table } from 'react-bootstrap';
+import styles from './Admin.module.css';
 
 const db = StartFirebase();
 
@@ -44,15 +44,15 @@ export class OrderRealtimeData extends React.Component {
     return (
       <div>
         <Table>
-          <thead className={styles["thead-style"]}>
-            <tr className={styles["header-style"]}>
+          <thead className={styles['thead-style']}>
+            <tr className={styles['header-style']}>
               <th>Order No.</th>
               <th>Date Ordered</th>
               <th>Confirmation Status</th>
               <th>Order Confirmation</th>
             </tr>
           </thead>
-          <tbody className={styles["tbody-style"]}>
+          <tbody className={styles['tbody-style']}>
             {this.state.tableData.map((row, index) => {
               return (
                 <tr>
@@ -60,10 +60,10 @@ export class OrderRealtimeData extends React.Component {
                   <td>{row.data.DateOrdered}</td>
                   <td>{row.data.ConfirmStatus}</td>
                   <td>
-                    <button className={styles["Accept-style"]}>Accept</button>
+                    <button className={styles['Accept-style']}>Accept</button>
                     <button
                       onClick={this.DeleteData.bind(this)}
-                      className={styles["Decline-style"]}
+                      className={styles['Decline-style']}
                     >
                       Decline
                     </button>
