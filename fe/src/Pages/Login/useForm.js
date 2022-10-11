@@ -34,7 +34,6 @@ const useForm = (validate) => {
       })
       .catch((error) => {
         setErrors(validate(values, error.response.data));
-        console.log(error.response.data);
       });
   };
 

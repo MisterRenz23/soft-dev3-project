@@ -20,11 +20,7 @@ const Google = () => {
   });
 
   const onSuccess = (res) => {
-    console.log('success:', res);
     navigate('/home-user');
-  };
-  const onFailure = (err) => {
-    console.log('failed:', err);
   };
 
   return (
@@ -33,7 +29,6 @@ const Google = () => {
         clientId={googleClientId}
         cookiePolicy={'single_host_origin'}
         onSuccess={onSuccess}
-        onFailure={onFailure}
         render={(renderProps) => (
           <Button
             onClick={renderProps.onClick}

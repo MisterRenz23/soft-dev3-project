@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import StartFirebase from "../../components/FireBase/firebaseRealTimeData";
-import { ref, onValue } from "firebase/database";
-import { Table } from "react-bootstrap";
-import styles from "./BagSummary.module.css";
+import React from 'react';
+import StartFirebase from '../../components/FireBase/firebaseRealTimeData';
+import { ref, onValue } from 'firebase/database';
+import { Table } from 'react-bootstrap';
+import styles from './BagSummary.module.css';
 const db = StartFirebase();
-const [user, setProfile] = JSON.parse(localStorage.getItem("user_data"));
+const [user, setProfile] = JSON.parse(localStorage.getItem('user_data'));
 
 var total = 0;
 export class RealtimeData extends React.Component {
@@ -56,7 +56,7 @@ export class RealtimeData extends React.Component {
             })}
           </tbody>
         </Table>
-        <div className={styles["total-description"]}>
+        <div className={styles['total-description']}>
           <h1>Total</h1>
           <h1>{total}</h1>
         </div>

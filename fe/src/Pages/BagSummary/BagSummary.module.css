@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
 
 .page-container {
   background-color: #f6f2ee;
@@ -12,7 +12,7 @@
 .title-text {
   text-align: center;
   color: #66002d;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 36px;
   line-height: 44px;
@@ -37,7 +37,7 @@
 }
 
 .title-order {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -67,7 +67,7 @@
 }
 
 .total-text {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -79,7 +79,7 @@
 }
 
 .total-product-price {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -103,7 +103,7 @@
 .checkout-button {
   width: 271px;
   height: 56px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -111,12 +111,27 @@
   letter-spacing: 0.05em;
   background-color: #66002d;
   border-radius: 15px;
-  margin-left: 301px;
+  margin-left: 20px;
+  margin-top: 46px;
+}
+.checkout-button1 {
+  width: 271px;
+  height: 56px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #000;
+  background-color: #ffaa55;
+  border-radius: 15px;
+  margin-left: 20px;
   margin-top: 46px;
 }
 
 .title-order-one {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -140,7 +155,7 @@
 }
 
 .information h4 {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 22px;
@@ -152,7 +167,7 @@
 
 .information p {
   width: 553px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -380,7 +395,7 @@
 }
 
 .total-description h1 {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
