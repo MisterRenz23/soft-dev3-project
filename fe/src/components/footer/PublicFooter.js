@@ -21,7 +21,7 @@ const PublicFooter = () => {
             <Link to="services" className={styles.link}>
               <h5 className={styles['bottom-nav']}>Services</h5>
             </Link>
-            <Link to="/faqsr" className={styles.link}>
+            <Link to="/faqs" className={styles.link}>
               <h5 className={styles['bottom-nav']}>Faqs</h5>
             </Link>
             <Link to="/feedback" className={styles.link}>
