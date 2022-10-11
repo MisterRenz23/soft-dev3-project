@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&display=swap");
+
+.title-text h1 {
+  color: #66002d;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  margin-bottom: 43px;
+}
+
+.margin {
+  margin: 30px;
+}
+
+.pink-color {
+  max-width: 100%;
+  height: 748px;
+  background-color: #c187a1;
+}
+.tbody-style,
+.thead-style {
+  text-align: center;
+}
+
+.header-style {
+  background-color: #66002d;
+  color: #ffffff;
+}
+
+.Accept-style {
+  font-family: "Inter", sans-serif;
+  background-color: #35c465;
+  border-radius: 10px;
+  border-style: none;
+  width: 70px;
+  color: rgb(0, 0, 0);
+  margin-right: 10px;
+}
+
+.Accept-style:hover {
+  background-color: #62a779;
+}
+
+.Decline-style:hover {
+  background-color: #8b1717;
+}
+
+.Decline-style {
+  font-family: "Inter", sans-serif;
+  background-color: #a80b0b;
+  border-radius: 10px;
+  border-style: none;
+  width: 70px;
+  color: white;
+}
