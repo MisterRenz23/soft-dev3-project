@@ -44,7 +44,7 @@ const FoodPackageDetail = () => {
         <div className={styles['page-content']}>
           <div className={styles['image-container']}>
             <img
-              src="/images/FoodPackagesDetail/set-a.svg"
+              src={sets.image}
               className={styles['image-size']}
               alt="Product"
             />
@@ -62,7 +62,7 @@ const FoodPackageDetail = () => {
               Good for 10 - 15 persons
             </p>
 
-            <p className={styles['product-description']}>{set.description}</p>
+            <p className={styles['product-description']}>{sets.description}</p>
 
             <p>For customization, messages us after you have check this out.</p>
             <div className={styles['counter']}>

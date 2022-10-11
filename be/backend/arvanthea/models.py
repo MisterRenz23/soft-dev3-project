@@ -65,6 +65,9 @@ class Package(models.Model):
     title = models.CharField(max_length=150)
     description = models.CharField(max_length=250, blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=6)
+    image = models.ImageField(
+        upload_to='images/', default='/media/images/dp/default.jpg', null=False, blank=False)
+
     pieces = models.IntegerField()
     slug = models.SlugField(default="package")
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -123,5 +123,5 @@ class FeedbackSerializer(serializers.ModelSerializer):
 class PackageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Package
-        fields = ['id', 'title',
+        fields = ['id', 'title', 'image',
                   'description', 'price', 'pieces', 'slug']

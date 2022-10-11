@@ -26,6 +26,7 @@ class PackageAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Created By", {'fields': ["created_by"]}),
         ("Title", {'fields': ["title"]}),
+        ("Image", {'fields': ["image"]}),
         ("Description", {'fields': ["description"]}),
         ("Price", {'fields': ["price"]}),
         ("Pieces", {'fields': ["pieces"]}),
