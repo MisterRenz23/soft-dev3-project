@@ -44,7 +44,7 @@ const FoodPackageDetail = () => {
         <div className={styles['page-content']}>
           <div className={styles['image-container']}>
             <img
-              src="/images/FoodPackagesDetail/set-a.svg"
+              src={sets.image}
               className={styles['image-size']}
               alt="Product"
             />
