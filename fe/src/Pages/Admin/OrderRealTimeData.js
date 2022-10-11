@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import StartFirebase from '../../components/FireBase/firebaseRealTimeData';
-import { ref, onValue, remove } from 'firebase/database';
-import { Table } from 'react-bootstrap';
-import styles from './Admin.module.css';
+
+import React, { useState } from "react";
+import StartFirebase from "../../components/FireBase/firebaseRealTimeData";
+import { ref, onValue, remove, set, update, push } from "firebase/database";
+import { Table } from "react-bootstrap";
+import styles from "./Admin.module.css";
+
 
 const db = StartFirebase();
+const [user, setProfile] = JSON.parse(localStorage.getItem("user_data"));
 
 export class OrderRealtimeData extends React.Component {
   DeleteData() {
@@ -48,8 +51,9 @@ export class OrderRealtimeData extends React.Component {
             <tr className={styles['header-style']}>
               <th>Order No.</th>
               <th>Date Ordered</th>
-              <th>Confirmation Status</th>
-              <th>Order Confirmation</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Number</th>
             </tr>
           </thead>
           <tbody className={styles['tbody-style']}>
@@ -58,16 +62,11 @@ export class OrderRealtimeData extends React.Component {
                 <tr>
                   <td>{row.key}</td>
                   <td>{row.data.DateOrdered}</td>
-                  <td>{row.data.ConfirmStatus}</td>
-                  <td>
-                    <button className={styles['Accept-style']}>Accept</button>
-                    <button
-                      onClick={this.DeleteData.bind(this)}
-                      className={styles['Decline-style']}
-                    >
-                      Decline
-                    </button>
-                  </td>
+
+                  <td>{row.data.UserName}</td>
+                  <td>{row.data.Email}</td>
+                  <td>{row.data.PhoneNumber}</td>
+
                 </tr>
               );
             })}
